@@ -1,10 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './layouts/header/Header';
+import Footer from "./layouts/footer/Footer"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { PRODUCT_PAGE, } from './pages/routes';
+import MenuPage from './pages/menu/MenuPage';
 function App() {
   return (
     <div>
-      2/18/2022
+      <Router>
+        <Header />
+        <Routes>
+          <Route path={PRODUCT_PAGE} element={<MenuPage/>}/>
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }
