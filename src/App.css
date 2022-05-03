@@ -44,7 +44,18 @@
   padding: 8px 9px;
 }
 .navBar .navBottom .navRight div:hover {
-  border: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+  /* Border bottom */
+  box-shadow: 0 -1px 0 0 white;
+  /* Border top */
+  box-shadow: -1px 0 0 0 white;
+  /* Border left */
+  box-shadow: 1px 0 0 0 white;
+  /* Border right */
+  box-shadow: 0 0 0 1px white;
+  /* All the borders by using the spread properties */
+  border-radius: 1px;
+  cursor: pointer;
 }
 
 .footer {
@@ -89,6 +100,47 @@
 .footer .line {
   border-top: 1px solid #3a4553;
   margin-top: 40px;
+}
+
+.menuCont .bannerCont {
+  max-width: 1500px;
+  height: 230px;
+  background-color: red;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+.menuCont .bannerCont .left {
+  position: absolute;
+  left: 1rem;
+  width: 30px;
+  line-height: 230px;
+}
+.menuCont .bannerCont .right {
+  position: absolute;
+  right: 1rem;
+  width: 30px;
+  line-height: 230px;
+}
+.menuCont .bannerCont .imageCont {
+  position: absolute;
+  height: 500px;
+  width: 100%;
+}
+.menuCont .categoryLayout .cardsLayout {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.menuCont .categoryLayout .cardsLayout .card {
+  flex-basis: 290px;
+  max-width: 400px;
+  height: 420px;
+  padding: 0 10px;
+  flex-grow: 1;
 }
 
 body {
