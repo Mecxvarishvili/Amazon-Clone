@@ -102,6 +102,9 @@
   margin-top: 40px;
 }
 
+.menuCont {
+  background-color: #EAEDED;
+}
 .menuCont .bannerCont {
   max-width: 1500px;
   height: 230px;
@@ -141,6 +144,30 @@
   height: 420px;
   padding: 0 10px;
   flex-grow: 1;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  box-shadow: 1px 1px black;
+  position: relative;
+}
+.menuCont .categoryLayout .cardsLayout .card .title {
+  font-size: 21px !important;
+  line-height: 27.3px !important;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.menuCont .categoryLayout .cardsLayout .card .catCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.menuCont .categoryLayout .cardsLayout .card .catCont .catBox {
+  width: 47.5%;
+}
+.menuCont .categoryLayout .cardsLayout .card .catCont .catBox .catTitle {
+  font-size: 12px !important;
+  line-height: 18px !important;
+  color: #0F1111 !important;
 }
 
 body {
