@@ -1,14 +1,17 @@
-export const Api = {
+const Api = {
     baseApi: (url) => {
-       fetch("http://localhost:8000/products/" + url)
-            .then(res => res.json())
+       return fetch("http://localhost:8000/products/" + url)
     },
 
     fetchSingleProduct: (id) => {
         return Api.baseApi(`product/${id}`)
+        .then(res => res.json())
     },
 
-    fetchCategoryProduct: (id)  => {
+    fetchCategoryProduct: async (id)  => {
         return Api.baseApi(`category/${id}`,)
+            .then(res => res.json())
     }
 }
+
+export default Api

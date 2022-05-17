@@ -1,0 +1,52 @@
+.productCont {
+    
+    .prodContainer {
+        display: flex;
+        flex-grow: 1;
+
+        .leftCol {
+            position: sticky;
+            top: 4px;
+            height: 100%;
+            width: 50.0%; 
+            display: flex;
+
+            .images {
+                width: 42px;
+
+                .sImage {
+                    height: 42px;
+
+                    .img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .mainImgCont {
+
+                .mainImg {
+                    max-width: 685px;
+                    max-height: 685px;
+                }
+            }
+        }
+
+        .centerCol {
+
+            .attrCont {
+
+                .attrBox {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+        
+        .rightCol {
+
+        }
+    }
+}

@@ -170,6 +170,36 @@
   color: #0F1111 !important;
 }
 
+.productCont .prodContainer {
+  display: flex;
+  flex-grow: 1;
+}
+.productCont .prodContainer .leftCol {
+  position: sticky;
+  top: 4px;
+  height: 100%;
+  width: 50%;
+  display: flex;
+}
+.productCont .prodContainer .leftCol .images {
+  width: 42px;
+}
+.productCont .prodContainer .leftCol .images .sImage {
+  height: 42px;
+}
+.productCont .prodContainer .leftCol .images .sImage .img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.productCont .prodContainer .leftCol .mainImgCont .mainImg {
+  max-width: 685px;
+  max-height: 685px;
+}
+.productCont .prodContainer .centerCol .attrCont .attrBox {
+  display: flex;
+  justify-content: space-between;
+}
 body {
   font-family: sans-serif;
 }
