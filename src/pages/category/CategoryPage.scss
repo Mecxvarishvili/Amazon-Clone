@@ -1,0 +1,87 @@
+.categoryPage {
+    max-width: 1500px;
+    margin: 15px auto;
+
+    .titleCont {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 36px;
+        text-transform: capitalize;
+        margin: 0 20px;
+    }
+
+    .cardsCont {
+        margin: 0 20px;
+
+        .resultBox {
+            border: 1px solid #d5d9d9;
+            border-radius: 8px;
+            padding: 14px 18px!important;
+            font-size: 15px;
+            line-height: 20px;
+            margin: 20px 0;
+            
+            span {
+                color: #c45500;
+                text-transform: capitalize;
+                font-weight: 700;
+            }
+        }
+
+        .cardCont {   
+            display: grid;
+            /* justify-items: center; */
+            grid-template-columns: repeat(auto-fill,minmax(320px,auto));
+    
+            .cardBox {
+                width: 308px;
+                height: 460px;
+                border-bottom: 2px solid #ddd;
+                padding: 2px 6px 6px;
+    
+                .card {
+                    flex-grow: 1;
+                    border: 1px solid #f5f5f5;
+                    height: 100%;
+    
+                    .specCont {
+                        
+    
+                    }
+    
+                    .imgCont {
+                        padding: 0 8px;
+                        margin-bottom: 8px;
+                        height: 290px;
+                        
+    
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+    
+                    .titleA {
+                        margin-top: 8px;
+                        text-decoration: none;
+                        
+                        .title {
+                            font-size: 16px!important;
+                            line-height: 24px!important;
+                            color: #0F1111!important;
+                            font-size: 16px!important;
+                            line-height: 24px!important;
+                            font-weight: 400!important;
+                            font-style: normal!important;
+                            text-transform: none!important;
+                            text-decoration: none!important;
+                        }
+    
+                    }
+                }
+            }
+        }
+
+    }
+}

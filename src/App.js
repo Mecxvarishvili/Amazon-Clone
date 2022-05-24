@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { CATEGORY_PAGE, MENU_PAGE, PRODUCT_PAGE, } from './pages/routes';
 import MenuPage from './pages/menu/MenuPage';
 import CategoryPage from './pages/category/CategoryPage';
-import NotFound from './pages/category/NotFound';
+import NotFound from './pages/notFound/NotFound';
 import ProductPage from './pages/product/ProductPage';
 
 function App() {

@@ -97,15 +97,21 @@ const MenuPage = () => {
                 </div>
                 ))}
               </div>
-              <div>shop now</div>
+              {/* <Link className="shopA" to={CATEGORY_PAGE.replace(":id", data.id)} >
+                <div className="shopNow" >shop now</div>
+              </Link> */}
             </div>
             :
             <div className="card"  key={data.id}>
               <div className='title'>{data.title}</div>
-              <Link to={CATEGORY_PAGE.replace(":id", data.id)} >
-              <img src={data.img} className="img" />
+              <div className="linkCont" >
+                <Link to={CATEGORY_PAGE.replace(":id", data.id)} >
+                  <img src={data.img} className="img" />
+                </Link>
+              </div>
+              <Link className="shopA" to={CATEGORY_PAGE.replace(":id", data.id)} >
+                <div className="shopNow" >see more</div>
               </Link>
-              <div>shop now</div>
             </div>
           ))}
         </div>

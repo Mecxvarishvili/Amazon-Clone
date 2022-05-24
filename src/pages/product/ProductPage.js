@@ -16,7 +16,7 @@ const ProductPage = () => {
 
     }, [])
     return (
-        productData &&<div className="productCont">
+        productData && <div className="productCont">
             <div className="prodContainer">
                 <div className="leftCol" >
                     <div className="images" >
@@ -49,7 +49,7 @@ const ProductPage = () => {
                     </div>
                 </div>
                 <div className="rightCol" >
-                    right
+                    rightdfsgadfhsdfhgsdghsdghsg
                 </div>
             </div>
         </div>
