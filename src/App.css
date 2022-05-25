@@ -2,7 +2,7 @@
   color: white;
 }
 .navBar .navTop {
-  height: 60px;
+  height: 65px;
   background-color: #131921;
   display: flex;
   align-items: center;
@@ -14,17 +14,143 @@
 }
 .navBar .navTop .navLeft .logo {
   width: 100px;
-  background-image: url("../public/white-logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+  height: 50px;
+  margin-left: 12px;
+  padding: 0 8px;
+}
+.navBar .navTop .navLeft .logo img {
+  width: 100%;
+  margin-top: 12px;
+}
+.navBar .navTop .navLeft .deliverCont {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0 8px;
+}
+.navBar .navTop .navLeft .deliverCont img {
+  margin-top: 5px;
+  height: 18px;
+}
+.navBar .navTop .navLeft .deliverCont .dlvrTtl1 {
+  color: #ccc;
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  font-weight: 600;
+}
+.navBar .navTop .navLeft .deliverCont .dlvrTtl2 {
+  color: #fff;
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: 700;
 }
 .navBar .navTop .navCenter {
+  flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
   width: auto;
+  height: 45px;
+  margin: 0 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.navBar .navTop .navCenter select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: #f3f3f3;
+  padding: 0 5px;
+  height: 100%;
+  outline: none;
+  color: #5F6869;
+  font-size: 14px;
+}
+.navBar .navTop .navCenter input {
+  height: 100%;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.navBar .navTop .navCenter .searchBtn {
+  height: 100%;
+  background-color: #febd69;
+  background-image: none;
+  border: none;
+  width: 45px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+}
+.navBar .navTop .navCenter .searchBtn img {
+  width: 100%;
+  transform: rotate(270deg);
+  object-fit: cover;
+}
+.navBar .navTop .navCenter:focus-within {
+  outline: 3px solid #FF9900;
+  border-radius: 4px;
 }
 .navBar .navTop .navRight {
   display: flex;
-  width: auto;
+  align-items: center;
+}
+.navBar .navTop .navRight .languageCont {
+  line-height: 50px;
+  padding: 0 10px;
+}
+.navBar .navTop .navRight .signInCont {
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navBar .navTop .navRight .signInCont .sgnT {
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  font-weight: 400;
+}
+.navBar .navTop .navRight .signInCont .sgnB {
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: 700;
+}
+.navBar .navTop .navRight .cartCounterCont {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  margin-right: 10px;
+}
+.navBar .navTop .navRight .cartCounterCont .cartCont {
+  display: flex;
+  position: relative;
+}
+.navBar .navTop .navRight .cartCounterCont .cartCont .cartCount {
+  position: absolute;
+  left: 12px;
+  top: -5px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #f08804;
+  width: 20px;
+  text-align: center;
+}
+.navBar .navTop .navRight .cartCounterCont .cartCont img {
+  width: 38px;
+}
+.navBar .navTop .navRight .cartCounterCont .cartText {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
 }
 .navBar .navTop .navRight a {
   text-decoration: none;
@@ -44,18 +170,13 @@
   padding: 8px 9px;
 }
 .navBar .navBottom .navRight div:hover {
-  box-shadow: 0 1px 0 0 white;
-  /* Border bottom */
-  box-shadow: 0 -1px 0 0 white;
-  /* Border top */
-  box-shadow: -1px 0 0 0 white;
-  /* Border left */
-  box-shadow: 1px 0 0 0 white;
-  /* Border right */
-  box-shadow: 0 0 0 1px white;
-  /* All the borders by using the spread properties */
+  outline: 1px solid white;
   border-radius: 1px;
   cursor: pointer;
+}
+.navBar .outline-hov:hover {
+  outline: 1px solid white;
+  border-radius: 1px;
 }
 
 .footer {
@@ -115,20 +236,34 @@
 }
 .menuCont .bannerCont .left {
   position: absolute;
-  left: 1rem;
-  width: 30px;
+  left: 0px;
+  width: 80px;
   line-height: 230px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menuCont .bannerCont .left .bannerArrow {
+  width: 150%;
 }
 .menuCont .bannerCont .right {
   position: absolute;
-  right: 1rem;
-  width: 30px;
+  right: 0px;
+  width: 80px;
   line-height: 230px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menuCont .bannerCont .right .bannerArrow {
+  width: 150%;
 }
 .menuCont .bannerCont .imageCont {
   position: absolute;
   height: 500px;
   width: 100%;
+  z-index: 0;
+}
+.menuCont .bannerCont .arrowFocus:focus {
+  border: 1px solid #000;
 }
 .menuCont .categoryLayout .cardsLayout {
   display: grid;
@@ -200,28 +335,51 @@
 }
 .productCont .prodContainer {
   display: flex;
+  gap: 20px;
 }
 .productCont .prodContainer .leftCol {
   position: sticky;
+  max-width: 600px;
   top: 4px;
   height: 100%;
   width: 50%;
-  display: flex;
+  padding-left: 40px;
 }
 .productCont .prodContainer .leftCol .images {
-  width: 42px;
+  width: 40px;
+  margin-left: -40px;
+  float: left;
+  position: relative;
+  overflow: visible;
+  zoom: 1;
+  min-height: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .productCont .prodContainer .leftCol .images .sImage {
   height: 42px;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
 }
 .productCont .prodContainer .leftCol .images .sImage .img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
+.productCont .prodContainer .leftCol .mainImgCont {
+  margin-left: 10px;
+  max-width: 600px;
+}
 .productCont .prodContainer .leftCol .mainImgCont .mainImg {
-  max-width: 685px;
+  max-width: 100%;
   max-height: 685px;
+  object-fit: contain;
+}
+.productCont .prodContainer .centerCol {
+  max-width: 400px;
 }
 .productCont .prodContainer .centerCol .productTitle {
   font-size: 24px;
@@ -231,6 +389,30 @@
   display: flex;
   justify-content: space-between;
 }
+.productCont .prodContainer .rightCol {
+  width: 245px;
+  height: 100%;
+  border: 1px #D5D9D9 solid;
+  border-radius: 8px;
+}
+.productCont .prodContainer .rightCol .inRightCol {
+  padding: 14px 18px;
+}
+.productCont .prodContainer .rightCol .inRightCol .addCartButton {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  text-transform: capitalize;
+  background-color: #FFD816;
+  border: none;
+  border-radius: 19px;
+  color: #0F1111;
+  font-size: 14px;
+}
+.productCont .prodContainer .rightCol .inRightCol .addCartButton:hover {
+  background-color: #f8d214;
+}
+
 .categoryPage {
   max-width: 1500px;
   margin: 15px auto;
@@ -300,8 +482,89 @@
   text-decoration: none !important;
 }
 
+.cartPage {
+  background-color: #EAEDED;
+  padding: 14px 18px;
+  min-height: 100px;
+  display: flex;
+}
+.cartPage .cartProductsCont {
+  margin-right: 20px;
+  padding: 20px;
+  flex-grow: 1;
+  background-color: white;
+}
+.cartPage .cartProductsCont .cartTitle {
+  font-size: 28px;
+}
+.cartPage .noProduct {
+  margin-right: 20px;
+  padding: 20px;
+  flex-grow: 1;
+  background-color: white;
+  display: flex;
+}
+.cartPage .noProduct .noProductImg {
+  width: 31.948%;
+  height: 100%;
+}
+.cartPage .noProduct .noProductImg img {
+  width: 100%;
+  height: 100%;
+}
+.cartPage .noProduct .rightCont .buttonsCont {
+  display: flex;
+}
+.cartPage .totalPriceCont {
+  background-color: white;
+  width: 300px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+.cartPage .totalPriceCont .inTotalPriceCont {
+  padding: 0 20px;
+}
+.cartPage .totalPriceCont .inTotalPriceCont .PriceText {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+.cartPage .totalPriceCont .inTotalPriceCont .PriceText span {
+  font-weight: bold;
+}
+.cartPage .totalPriceCont .inTotalPriceCont button {
+  height: 30px;
+  border: 0;
+  border-radius: 7px;
+  width: 100%;
+  background-color: #FFD816;
+  color: #0F1111;
+  font-size: 13px;
+}
+.cartPage .dontShow {
+  height: 0px;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   font-family: sans-serif;
+}
+
+.Button-A {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  text-transform: capitalize;
+  background-color: #FFD816;
+  border: none;
+  border-radius: 19px;
+  color: #0F1111;
+  font-size: 14px;
+}
+
+.Button-A:hover {
+  background-color: #f8d214;
 }
 
 /*# sourceMappingURL=App.css.map */

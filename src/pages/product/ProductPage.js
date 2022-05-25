@@ -49,7 +49,11 @@ const ProductPage = () => {
                     </div>
                 </div>
                 <div className="rightCol" >
-                    rightdfsgadfhsdfhgsdghsdghsg
+                    <div className="inRightCol">
+                        <div>${productData.price}</div>
+                        <div>deliver to ...</div>
+                        <button className="addCartButton" >add To cart</button>
+                    </div>
                 </div>
             </div>
         </div>

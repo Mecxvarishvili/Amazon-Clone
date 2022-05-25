@@ -4,7 +4,26 @@
 @import "./pages/menu/Menu.scss";
 @import "./pages/product/ProductPage.scss";
 @import "./pages/category/CategoryPage.scss";
+@import "./pages/cartPage/CartPage.scss";
 
 body {
     font-family: sans-serif;
+}
+
+
+
+.Button-A {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: #FFD816;
+    border: none;
+    border-radius: 19px;
+    color: #0F1111;
+    font-size: 14px;
+
+}
+.Button-A:hover {
+    background-color: #f8d214;
 }

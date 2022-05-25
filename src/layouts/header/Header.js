@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import logo from "../../img/white-logo.png"
+import cartImg from "../../img/whiteCart.png"
+import { CART_PAGE, MENU_PAGE } from '../../pages/routes';
 
 
 
@@ -9,26 +12,46 @@ const Header = () => {
         <div className='navBar' >
             <div className="navTop" >
                 <div className='navLeft'>
-                    <div className="logo" ></div>
-                    <div>location</div>
+                    <div className="logo outline-hov" >
+                        <Link to={MENU_PAGE}>
+                            <img src={logo} />
+                        </Link>
+                    </div>
+                    <div className="deliverCont outline-hov" >
+                        <img src="https://icon-library.com/images/e958984b9c.png" />
+                        <div>
+                            <div className="dlvrTtl1" >Deliver to</div>
+                            <div className="dlvrTtl2" >location</div>
+                        </div>
+                    </div>
                 </div>
                 <div className='navCenter' >
-                    <form>
                         <select name="category" defaultValue={"all"} >
                             <option value="all" >All</option>
-                            <option value="1" ></option>
-                            <option value="1" ></option>
-                            <option value="1" ></option>
+                            <option value="1" >sadfgsdfgsdfgdsfgds</option>
+                            <option value="1" >sdfgsdfgsdfg</option>
+                            <option value="1" >sdfg</option>
                         </select>
                         <input></input>
-                        <button></button>
-                    </form>
+                        <button className='searchBtn' >
+                            <img src="https://icon-library.com/images/svg-search-icon/svg-search-icon-16.jpg" />
+                        </button>
                 </div>
                 <div className='navRight' >
-                    <Link to="/" >language</Link>
-                    <Link to="/" >hello</Link>
-                    <Link to="/" >order</Link>
-                    <Link to="/" >cart</Link>
+                    <Link to="/" className="languageCont outline-hov" >Language</Link>
+                    <Link to="/" className="signInCont outline-hov">
+                        <div className="sgnT" >Hello, Sign in</div>
+                        <div className="sgnB" >Account & Lists</div>
+                    </Link>
+                    <Link to={CART_PAGE} className="cartCounterCont outline-hov" >
+                        <div className='cartCont'>
+                            <div className='cartCount'>0</div>
+                            <div >
+                                <img src={cartImg} />
+                            </div>
+                        </div>
+                        <div className="cartText">Cart</div>
+                    </Link>
                 </div>
             </div>
             <div className="navBottom" >

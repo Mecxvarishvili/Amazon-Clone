@@ -1,0 +1,2 @@
+export const SET_PRODUCT = "SAT_CART_PRODUCT"
+export const DELETE_PRODUCT = "DELETE_PRODUCT"
