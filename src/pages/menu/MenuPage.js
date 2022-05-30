@@ -54,7 +54,7 @@ const MenuPage = () => {
     {
       id: "computers&accessories",
       title: "Computers & Accessories",
-      img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg",
+      img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
     },
     {
       id: "beauty",

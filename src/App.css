@@ -547,6 +547,186 @@
   margin: 0;
 }
 
+.authorizationPage {
+  padding: 15px 20px;
+}
+.authorizationPage .imgCont {
+  text-align: center !important;
+  margin-bottom: 20px;
+}
+.authorizationPage .imgCont img {
+  width: 105px;
+  height: 33px;
+  object-fit: contain;
+}
+.authorizationPage .formCont {
+  max-width: 350px;
+  margin: auto;
+}
+.authorizationPage .formCont .inFormCont {
+  width: 312px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+.authorizationPage .formCont .inFormCont .formTitle {
+  font-weight: 400;
+  font-size: 28px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+.authorizationPage .formCont .inFormCont form {
+  display: flex;
+  flex-direction: column;
+}
+.authorizationPage .formCont .inFormCont form .formBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.authorizationPage .formCont .inFormCont form .formBox label {
+  font-size: 13px;
+  line-height: 19px;
+  color: #111;
+  padding-left: 2px;
+  padding-bottom: 2px;
+  font-weight: 700;
+}
+.authorizationPage .formCont .inFormCont form .formBox input {
+  outline: none;
+  height: 28px;
+  font-size: 100%;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  padding: 0 5px;
+}
+.authorizationPage .formCont .inFormCont form .formBox input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+}
+.authorizationPage .formCont .inFormCont form .formBox .errMessage {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #c40000;
+}
+.authorizationPage .formCont .inFormCont form .submitButton {
+  height: 30px;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #111;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.authorizationPage .formCont .inFormCont form .submitButton:hover {
+  background: linear-gradient(to bottom, #f8d991, #f1bb30);
+  color: black;
+}
+.authorizationPage .formCont .inFormCont .CondNdPrivacy {
+  font-size: 12px;
+  margin-bottom: 25px;
+  color: #111;
+  line-height: 18px;
+}
+.authorizationPage .formCont .inFormCont .signInCont {
+  font-size: 13px;
+  line-height: 19px;
+  color: #111;
+}
+.authorizationPage .formCont .newToCont {
+  text-align: center;
+  position: relative;
+  top: 2px;
+  padding-top: 1px;
+  margin-bottom: 14px;
+  line-height: 0;
+  font-weight: 400;
+}
+.authorizationPage .formCont .newToCont span {
+  line-height: 1;
+  font-size: 12px;
+  color: #767676;
+  z-index: 2;
+  position: relative;
+  background-color: #fff;
+  padding: 0 8px 0 7px;
+}
+.authorizationPage .formCont .newToCont::after {
+  content: "";
+  width: 100%;
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  z-index: 1;
+}
+.authorizationPage .formCont .createAccCont {
+  height: 30px;
+  border: 1px solid #adb1b8;
+  border-radius: 3px;
+  text-align: center;
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+}
+.authorizationPage .formCont .createAccCont a {
+  text-decoration: none;
+}
+.authorizationPage .formCont .createAccCont a .createAccBtn {
+  color: #111;
+  width: 350px !important;
+  height: 30px !important;
+  line-height: 30px;
+  font-size: 13px;
+}
+.authorizationPage .aboutCont {
+  margin-top: 25px;
+  text-align: center;
+  z-index: 1;
+  content: "";
+}
+.authorizationPage .aboutCont .helpCont {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0 18px;
+  margin-bottom: 10px;
+}
+.authorizationPage .aboutCont .inc {
+  font-size: 11px;
+  color: #555;
+}
+.authorizationPage .shadowCont-inner {
+  height: 30px;
+  margin-bottom: -18px;
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.03) 3px, transparent);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.03) 3px, transparent);
+  z-index: 0;
+  zoom: 1;
+}
+.authorizationPage .shadowCont-inner::after {
+  display: block;
+  width: 100%;
+  height: 30px;
+  background-color: transparent;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+  z-index: 1;
+  content: "";
+}
+.authorizationPage .A-type-1 {
+  color: #0066c0;
+  text-decoration: none;
+  font-size: 12px;
+}
+.authorizationPage .A-type-1:hover {
+  text-decoration: underline;
+}
+
 body {
   font-family: sans-serif;
 }
