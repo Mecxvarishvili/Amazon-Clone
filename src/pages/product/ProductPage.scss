@@ -81,6 +81,44 @@
             .inRightCol {
                 padding: 14px 18px;
 
+                //qty
+
+                .qtyCont {
+                    position: relative;
+                    width: 70px;
+                    height: 20px;
+                    line-height: 20px;
+                    border: 1px solid #D5D9D9;
+                    border-radius: 7px;
+                    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+                    background: #F0F2F2;
+                    padding: 0 5px;
+                    cursor: pointer;
+                    margin: 10px 0;
+                    font-size: 12px;
+                    text-align: center;
+
+                    .qtyHide {
+                        display: none;
+                        cursor: pointer;
+                    }
+                    .qtyShow {
+                        display: block;
+                        position: absolute;
+                        z-index: 2;
+                        top: 0;
+                        cursor: pointer;
+                        background-color: white;
+                        width: 70px;
+                        height: 100%;
+                        text-align: start;
+                        
+                    }
+                }
+
+
+                //end
+
                 .addCartButton {
                     width: 100%;
                     height: 30px;

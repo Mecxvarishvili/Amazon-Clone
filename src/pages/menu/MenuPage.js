@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SimpleSlider from '../../componenets/SimpleSlider';
 import { CATEGORY_PAGE } from '../routes';
 import MenuBanner from './MenuBanner';
 
@@ -77,10 +78,11 @@ const MenuPage = () => {
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
     },
   ]
+
   
   return (
     <div className="menuCont" >
-      <MenuBanner/>
+      <MenuBanner/>{
       <div className="categoryLayout" >
         <div className="cardsLayout" >
           {categoryData.map(data => (
@@ -97,9 +99,6 @@ const MenuPage = () => {
                 </div>
                 ))}
               </div>
-              {/* <Link className="shopA" to={CATEGORY_PAGE.replace(":id", data.id)} >
-                <div className="shopNow" >shop now</div>
-              </Link> */}
             </div>
             :
             <div className="card"  key={data.id}>
@@ -115,8 +114,9 @@ const MenuPage = () => {
             </div>
           ))}
         </div>
+      </div>}
+      <div>
       </div>
-      <div></div>
     </div>
   );
 };

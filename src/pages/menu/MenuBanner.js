@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Slider from 'react-slick/lib/slider';
+import 'swiper/css';
+import SampleArrow from './SampleArrow';
 
 const MenuBanner = () => {
+    const settings = {
+        dots: false,
+        arrows:true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        prevArrow: <SampleArrow img="left-cont" />,
+        nextArrow: <SampleArrow img="right-cont" />,
+        className: "bannerCont"
+    }
+
     return (
-        <div className="bannerCont" >
-            <div className="left arrowFocus" >
-                <img className="bannerArrow" src="https://m.media-amazon.com/images/S/sash/ydDD9hnRfziI$y7.png" />
+        <Slider {...settings} >
+            <div className='imgBox' >
+                <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" />
             </div>
-            <div className="right arrowFocus" >
-                <img className="bannerArrow" src="https://m.media-amazon.com/images/S/sash/ydDD9hnRfziI$y7.png" />
+            <div className='imgBox'>
+                <img src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg" />
             </div>
-            <div className='imageCont' ></div>
-        </div>
+            <div className='imgBox'>
+                <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" />
+            </div>
+            <div className='imgBox'>
+                <img src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" />
+            </div>
+        </Slider>
     );
 };
 

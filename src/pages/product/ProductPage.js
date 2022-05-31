@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Api from '../../componenets/api';
 import ProductAttributes from './ProductAttributes';
+import { setCartProduct } from '../../store/cart/cartActions';
+import ProductQuantity from '../../componenets/ProductQuantity';
 
 const ProductPage = () => {
     const [ productData, setData ] = useState(false)
     const [ img, setImg ] = useState(0)
+    const [ qty, setQty ] = useState(1)
 
+    const dispatch = useDispatch()
     const {id} = useParams()
 
     useEffect(() => {
@@ -39,7 +44,7 @@ const ProductPage = () => {
                     <div className="attrCont" >
                         {productData.attributes.map((attr, index) => {
                             return ( 
-                            <ProductAttributes key={index} attr={attr} />
+                            <ProductAttributes  key={index} attr={attr} />
                             )
                         })}
                     </div>
@@ -52,7 +57,9 @@ const ProductPage = () => {
                     <div className="inRightCol">
                         <div>${productData.price}</div>
                         <div>deliver to ...</div>
-                        <button className="addCartButton" >add To cart</button>
+                        <div>instock</div>
+                        <ProductQuantity data={productData}  qty={qty} setQty={setQty} />
+                        <button onClick={() => dispatch(setCartProduct(productData, qty))} className="addCartButton" >add To cart</button>
                     </div>
                 </div>
             </div>
