@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import serialize from '../../serialize/serializer';
+import { getCartData } from '../../store/selector';
+import { SIGN_IN_PAGE, SIGN_UP_PAGE } from '../routes';
 import CartCard from './CartCard';
-
+import { Link } from 'react-router-dom';
 const CartPage = () => {
 
     /* const [ cartData, setData ] = useState(useSelector((state) => state.cartReducer)) */
-    const cartData = useSelector((state) => state.cartReducer)
+    const cartData = useSelector(getCartData)
     /* useEffect(() => {
         setData(cartSelector)
     }, [cartSelector]) */
@@ -26,24 +29,34 @@ const CartPage = () => {
                 </div>
                 <div className="totalPriceCont" >
                     <div className='inTotalPriceCont' >
-                        <div className="PriceText" >Subtotal ({} item): <span>$200</span></div>
+                        <div className="PriceText" >Subtotal ({serialize.totalProducts(cartData)} item): <span>${serialize.totalProductsPrice(cartData)}</span></div>
                         <button>Proceed to checkout</button>
                     </div>
                 </div>
             </>
             :
             <>
-                <div className="noProduct" >
-                    <div className="noProductImg" >
-                        <img src="https://m.media-amazon.com/images/G/01/cart/empty/kettle-desaturated._CB445243794_.svg" />
-                    </div>
-                    <div className="rightCont" >
-                        <div>Your Amazon Cart is empty</div>
-                        <div className="buttonsCont">
-                            <button className="Button-A signInBtn" >sign in to your account</button>
-                            <button className="Button-A signInBtn">Sign up now</button>
+                <div className="leftCont" >
+                    <div className='noProduct' >
+                        <div className='boxP' >
+                            <div className="noProductImg" >
+                                <img src="https://m.media-amazon.com/images/G/01/cart/empty/kettle-desaturated._CB445243794_.svg" />
+                            </div>
+                            <div className="emptyCont" >
+                                <div className='emptyTitle'>Your Amazon Cart is empty</div>
+                                <div className="buttonsCont">
+                                    <Link to={SIGN_IN_PAGE}>
+                                        <button className="signInBtn" >Sign in to your account</button>
+                                    </Link>
+                                    <Link to={SIGN_UP_PAGE}>
+                                        <button className="signUpBtn">Sign up now</button>
+                                    </Link>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+                    <div className="emptyBox" ></div>
                 </div>
                 <div className="totalPriceCont dontShow" ></div>
             </>

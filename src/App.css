@@ -4,7 +4,7 @@
   color: white;
 }
 .navBar .navTop {
-  height: 65px;
+  height: 60px;
   background-color: #131921;
   display: flex;
   align-items: center;
@@ -49,15 +49,19 @@
 }
 .navBar .navTop .navCenter {
   flex-grow: 1;
-  display: flex;
-  flex-wrap: wrap;
   width: auto;
-  height: 45px;
+  height: 40px;
   margin: 0 10px;
   border-radius: 5px;
   overflow: hidden;
 }
-.navBar .navTop .navCenter select {
+.navBar .navTop .navCenter form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.navBar .navTop .navCenter form select {
   margin: 0;
   padding: 0;
   border: 0;
@@ -69,7 +73,7 @@
   color: #5F6869;
   font-size: 14px;
 }
-.navBar .navTop .navCenter input {
+.navBar .navTop .navCenter form input {
   height: 100%;
   flex-grow: 1;
   margin: 0;
@@ -79,19 +83,21 @@
   font-size: 18px;
   padding: 0 10px;
 }
-.navBar .navTop .navCenter .searchBtn {
+.navBar .navTop .navCenter form .searchBtn {
   height: 100%;
   background-color: #febd69;
   background-image: none;
   border: none;
   width: 45px;
+  height: 40px;
   padding: 0;
   margin: 0;
   outline: none;
   cursor: pointer;
 }
-.navBar .navTop .navCenter .searchBtn img {
-  width: 100%;
+.navBar .navTop .navCenter form .searchBtn img {
+  width: 40px;
+  height: 40px;
   transform: rotate(270deg);
   object-fit: cover;
 }
@@ -161,11 +167,24 @@
 .navBar .navBottom {
   background-color: #232F3E;
   display: flex;
+  height: 40px;
+}
+.navBar .navBottom .navLeft {
+  margin: 5px 0 6px 10px;
+  padding: 8px 9px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.navBar .navBottom .nav-left:hover {
+  outline: 1px solid white;
+  border-radius: 1px;
+  cursor: pointer;
 }
 .navBar .navBottom .navRight {
   display: flex;
   font-size: 14px;
   font-weight: 600;
+  margin-left: 10px;
 }
 .navBar .navBottom .navRight div {
   margin: 5px 0 6px 0;
@@ -197,16 +216,26 @@
 .footer .backToTop:hover {
   background-color: #485769;
 }
-.footer .infoCont {
+.footer .footCont {
+  margin: 0 30px;
+}
+.footer .footCont .infoCont {
+  margin-top: 40px !important;
   max-width: 1000px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, auto));
+  grid-gap: 40px 30px;
+  min-height: 300px;
 }
-.footer .infoCont .infoBox {
-  flex-basis: 220px;
+.footer .footCont .infoCont .gridBox {
+  width: 100%;
 }
-.footer .infoCont .infoBox .infoTitle {
+.footer .footCont .infoCont .gridBox .infoBox {
+  width: 210px;
+  margin: 0 auto;
+}
+.footer .footCont .infoCont .gridBox .infoBox .infoTitle {
   font-weight: 700;
   color: #FFF;
   font-family: inherit;
@@ -214,7 +243,7 @@
   margin: 6px 0 14px 0;
   box-sizing: border-box;
 }
-.footer .infoCont .infoBox .infoCategory {
+.footer .footCont .infoCont .gridBox .infoBox .infoCategory {
   line-height: 25px;
   color: #DDDDDD;
   font-size: 14px;
@@ -530,9 +559,9 @@
   padding: 14px 18px;
   min-height: 100px;
   display: flex;
+  gap: 20px;
 }
 .cartPage .cartProductsCont {
-  margin-right: 20px;
   padding: 20px;
   flex-grow: 1;
   background-color: white;
@@ -581,23 +610,68 @@
   min-width: 120px;
   text-align: end;
 }
-.cartPage .noProduct {
-  margin-right: 20px;
-  padding: 20px;
+.cartPage .leftCont {
+  margin-top: 10px;
   flex-grow: 1;
+}
+.cartPage .leftCont .noProduct {
+  padding: 20px;
   background-color: white;
+  min-height: 120px;
+}
+.cartPage .leftCont .noProduct .boxP {
+  margin-top: 30px;
   display: flex;
 }
-.cartPage .noProduct .noProductImg {
+.cartPage .leftCont .noProduct .boxP .noProductImg {
   width: 31.948%;
   height: 100%;
 }
-.cartPage .noProduct .noProductImg img {
+.cartPage .leftCont .noProduct .boxP .noProductImg img {
   width: 100%;
-  height: 100%;
+  min-height: 120px;
 }
-.cartPage .noProduct .rightCont .buttonsCont {
+.cartPage .leftCont .noProduct .boxP .emptyCont .emptyTitle {
+  font-weight: 700;
+  font-size: 24px;
+}
+.cartPage .leftCont .noProduct .boxP .emptyCont .buttonsCont {
   display: flex;
+  gap: 10px;
+  margin: 16px 0;
+}
+.cartPage .leftCont .noProduct .boxP .emptyCont .buttonsCont .signInBtn {
+  background: #FFD814;
+  border-color: #FCD200;
+  border-style: solid;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 0 10px;
+  box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+  color: #0F1111;
+}
+.cartPage .leftCont .noProduct .boxP .emptyCont .buttonsCont .signUpBtn {
+  background: white;
+  border: 1px solid #FCD200;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 0 10px;
+  box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+  color: #0F1111;
+  border-color: #D5D9D9;
+  border-style: solid;
+}
+.cartPage .leftCont .emptyBox {
+  margin: 20px 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
 }
 .cartPage .totalPriceCont {
   background-color: white;

@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from "../../img/white-logo.png"
 import cartImg from "../../img/whiteCart.png"
-import { CART_PAGE, MENU_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
+import { CART_PAGE, MENU_PAGE, SEARCH_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
+import serialize from "../../serialize/serializer"
+import { getCartData } from '../../store/selector';
 
 
 
 const Header = () => {
+
+    const cartData = useSelector(getCartData)
 
     return (
         <div className='navBar' >
@@ -26,6 +31,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='navCenter' >
+                    <form  action={SEARCH_PAGE}>
                         <select name="category" defaultValue={"all"} >
                             <option value="all" >All</option>
                             <option value="1" >sadfgsdfgsdfgdsfgds</option>
@@ -33,9 +39,11 @@ const Header = () => {
                             <option value="1" >sdfg</option>
                         </select>
                         <input></input>
-                        <button className='searchBtn' >
+                        <button type="submit" className='searchBtn' >
                             <img src="https://icon-library.com/images/svg-search-icon/svg-search-icon-16.jpg" />
                         </button>
+
+                    </form>
                 </div>
                 <div className='navRight' >
                     <Link to="/" className="languageCont outline-hov" >Language</Link>
@@ -45,7 +53,7 @@ const Header = () => {
                     </Link>
                     <Link to={CART_PAGE} className="cartCounterCont outline-hov" >
                         <div className='cartCont'>
-                            <div className='cartCount'>0</div>
+                            <div className='cartCount'>{serialize.totalProducts(cartData)}</div>
                             <div >
                                 <img src={cartImg} />
                             </div>
@@ -55,8 +63,8 @@ const Header = () => {
                 </div>
             </div>
             <div className="navBottom" >
-                <div className="navLeft" >all</div>
                 <div className="navRight" >
+                    <div className="navLeft" >All</div>
                     <div>Today's Deals</div>
                     <div>Customer Service</div>
                     <div>Registry</div>

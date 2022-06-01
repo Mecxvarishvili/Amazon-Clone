@@ -3,10 +3,9 @@
     padding: 14px 18px;
     min-height: 100px;
     display: flex;
-
+    gap: 20px;
 
     .cartProductsCont {
-        margin-right: 20px;
         padding: 20px;
         flex-grow: 1;
         background-color: white;
@@ -75,34 +74,84 @@
         }
     }
 
-    .noProduct {
-        margin-right: 20px;
-        padding: 20px;
+    .leftCont {
+        margin-top: 10px;
         flex-grow: 1;
-        background-color: white;
-        display: flex;
 
-        .noProductImg {
-            width: 31.948%;
-            height: 100%;
+        .noProduct {
+            padding: 20px;
+            background-color: white;
+            min-height: 120px;
 
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .rightCont {
-
-            .buttonsCont {
+            .boxP {
+                margin-top: 30px;
                 display: flex;
-                
-                .signInBtn {
-    
+
+                .noProductImg {
+                    width: 31.948%;
+                    height: 100%;
+        
+                    img {
+                        width: 100%;
+                        min-height: 120px;
+                        
+                    }
+                }
+        
+                .emptyCont {
+                    .emptyTitle {
+                        font-weight: 700;
+                        font-size: 24px;
+                    }
+        
+                    .buttonsCont {
+                        display: flex;
+                        gap: 10px;
+                        margin: 16px 0;
+                        
+                        .signInBtn {
+                            background: #FFD814;
+                            border-color: #FCD200;
+                            border-style: solid;
+                            width: 100%;
+                            height: 30px;
+                            cursor: pointer;
+                            border-radius: 8px;
+                            font-size: 16px;
+                            padding: 0 10px;
+                            box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+                            color: #0F1111;
+                        }
+
+                        .signUpBtn {
+                            background: white;
+                            border: 1px solid #FCD200;
+                            width: 100%;
+                            height: 30px;
+                            cursor: pointer;
+                            border-radius: 8px;
+                            font-size: 16px;
+                            padding: 0 10px;
+                            box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+                            color: #0F1111;
+                            border-color: #D5D9D9;
+                            border-style: solid;
+                        }
+        
+                    }
                 }
 
             }
+
         }
+        .emptyBox {
+            margin: 20px 0;
+            
+            width: 100%;
+            height: 80px;
+            background-color: white;
+        }
+
     }
 
     .totalPriceCont {
