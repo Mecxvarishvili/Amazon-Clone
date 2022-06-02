@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import logo from "../../img/white-logo.png"
 import cartImg from "../../img/whiteCart.png"
 import { CART_PAGE, MENU_PAGE, SEARCH_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
@@ -12,6 +12,47 @@ import { getCartData } from '../../store/selector';
 const Header = () => {
 
     const cartData = useSelector(getCartData)
+    const [ searchValue, setSearchValue ] = useState("")
+    const [ categoryValue, setCategoryValue ] = useState("")
+
+    const [ formCategoryName, setFormSName ] = useState("")
+    const [ formSearchName, setFormIName ] = useState("")
+
+    const [ pathName, setPathName ] = useState(SEARCH_PAGE)
+    const location = useLocation()
+    const useQuery = () => new URLSearchParams(useLocation().search);
+    const query = useQuery()
+
+    const querySet = (q, setQ) => {
+        if(query.get(q)) {
+            setQ(query.get(q))
+        } else {
+            setQ("")
+        }
+
+    }
+
+    const handleSubmit = (value, updateState, name) => {
+        if(value === "") {
+            updateState("")
+        } else {
+            updateState(name)
+        }
+    }
+
+    const formSubmit = () => {
+        handleSubmit(categoryValue, setFormSName, "category")
+        handleSubmit(searchValue, setFormIName, "search")
+        if(categoryValue === "" && searchValue === "") {
+            setPathName(MENU_PAGE)
+        } 
+    }
+
+    useEffect(() => {
+        querySet("search", setSearchValue)
+        querySet("category", setCategoryValue)
+    }, [location.pathname])
+
 
     return (
         <div className='navBar' >
@@ -31,14 +72,18 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='navCenter' >
-                    <form  action={SEARCH_PAGE}>
-                        <select name="category" defaultValue={"all"} >
-                            <option value="all" >All</option>
-                            <option value="1" >sadfgsdfgsdfgdsfgds</option>
-                            <option value="1" >sdfgsdfgsdfg</option>
-                            <option value="1" >sdfg</option>
+                    <form onSubmit={() => formSubmit() } id="products-search" role="search" method="GET" action={pathName}>
+                        <select value={categoryValue} onChange={(e) => setCategoryValue(e.target.value)} id="category" name={formCategoryName} >
+                            <option value="" >All Product</option>
+                            <option value="baby" >baby</option>
+                            <option value="beauty&personal-care" >beauty & personal-care</option>
+                            <option value="electronics" >Electronics</option>
+                            <option value="Health & Household" >Health & Household</option>
+                            <option value="health&personal-care" >Health & Personal-care</option>
+                            <option value="video-games" >Video Games</option>
                         </select>
-                        <input></input>
+                        <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} id="search" name={formSearchName} />
+                        <input  type="submit" hidden />
                         <button type="submit" className='searchBtn' >
                             <img src="https://icon-library.com/images/svg-search-icon/svg-search-icon-16.jpg" />
                         </button>

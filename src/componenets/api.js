@@ -5,11 +5,16 @@ const Api = {
 
     fetchSingleProduct: (id) => {
         return Api.baseApi(`product/${id}`)
-        .then(res => res.json())
+            .then(res => res.json())
     },
 
     fetchCategoryProduct: async (id)  => {
         return Api.baseApi(`category/${id}`,)
+            .then(res => res.json())
+    },
+
+    fetchSearchProducts: (id) => {
+        return Api.baseApi(id)
             .then(res => res.json())
     }
 }
