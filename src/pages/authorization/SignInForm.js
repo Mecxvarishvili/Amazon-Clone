@@ -1,10 +1,26 @@
 import {ErrorMessage, Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SIGN_UP_PAGE } from '../routes';
+import { SIGN_UP_PAGE, MENU_PAGE } from '../routes';
+import Api from '../../componenets/api';
 import * as Yup from 'yup';
 
 const SignInForm = () => {
+    const [ Token, setToken ] = useState("")
+    const [ error, setError ] = useState("")
+
+    useEffect(() => {
+        if(Token !== "") {
+            Api.fetchUserToken(Token)
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                    /* window.location.replace(MENU_PAGE) */
+                })
+        }
+    }, [Token])
+
+
     return (
         <>
             <div className='inFormCont' >
@@ -12,7 +28,7 @@ const SignInForm = () => {
                 <Formik
                 validateOnChange={false}
                 validateOnBlur={false}
-                initialValues={{fullName: '', email: '', password: '', rePassword: '', }}
+                initialValues={{email: '', password: ''}}
                 validationSchema={Yup.object({
                     email: Yup.string()
                         .email('Wrong or Invalid email address or mobile phone number. Please correct and try again.')
@@ -22,7 +38,16 @@ const SignInForm = () => {
                         .required("Minimum 6 characters required"),
                 })}
                 onSubmit={(values, {setSubmitting}) => {
-                    alert("hello")
+                        Api.fetchUserLogin(values)
+                            .then(res => res.json())
+                            .then(res => {
+                                if(res.error) {
+                                    setError(res.error)
+                                } else {
+                                    setToken(res.accesToken)
+                                }
+                                
+                            })
                 }}
                 >
                     <Form>
@@ -37,6 +62,8 @@ const SignInForm = () => {
                         <Field type="password" name="password" />
                         <ErrorMessage component="div" className="errMessage" name="password" />
                         </div>
+
+                        {error !== "" && <div className='fetchErrMessage' >{error}</div>}
 
                         <button type="submit" className='submitButton' >Continue</button>
                     </Form>

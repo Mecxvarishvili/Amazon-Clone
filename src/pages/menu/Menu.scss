@@ -113,6 +113,11 @@
                         text-transform: capitalize;
                         font-size: 13px!important;
                     }
+
+                    .shopNow:hover {
+                        color: #DA8C6B;
+                        text-decoration: underline;
+                    }
                 }
 
                 .catCont {
@@ -134,6 +139,14 @@
                             object-fit: cover;
                         }
                     }
+                }
+
+                .submitButton {
+                    border: none;
+                    outline: none;
+                    background-color: white;
+                    text-align: start;
+                    cursor: pointer;
                 }
             }
         }

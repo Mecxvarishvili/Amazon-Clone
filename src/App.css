@@ -352,6 +352,10 @@
   text-transform: capitalize;
   font-size: 13px !important;
 }
+.menuCont .categoryLayout .cardsLayout .card .shopA .shopNow:hover {
+  color: #DA8C6B;
+  text-decoration: underline;
+}
 .menuCont .categoryLayout .cardsLayout .card .catCont {
   display: flex;
   flex-wrap: wrap;
@@ -368,6 +372,13 @@
 }
 .menuCont .categoryLayout .cardsLayout .card .catCont .catBox .catImg {
   object-fit: cover;
+}
+.menuCont .categoryLayout .cardsLayout .card .submitButton {
+  border: none;
+  outline: none;
+  background-color: white;
+  text-align: start;
+  cursor: pointer;
 }
 
 .productCont {
@@ -485,6 +496,7 @@
   background-color: #f8d214;
 }
 
+/* @import "./pages/category/CategoryPage.scss"; deprecated */
 .cartPage {
   background-color: #EAEDED;
   padding: 14px 18px;
@@ -670,6 +682,12 @@
 .authorizationPage .formCont .inFormCont form {
   display: flex;
   flex-direction: column;
+}
+.authorizationPage .formCont .inFormCont form .fetchErrMessage {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #c40000;
 }
 .authorizationPage .formCont .inFormCont form .formBox {
   display: flex;

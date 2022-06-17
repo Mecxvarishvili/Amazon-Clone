@@ -7,10 +7,10 @@ import MenuPage from './pages/menu/MenuPage';
 import CategoryPage from './pages/category/CategoryPage';
 import NotFound from './pages/notFound/NotFound';
 import ProductPage from './pages/product/ProductPage';
-import CartPage from './pages/cartPage/CartPage';
+import CartPage from './pages/cart/CartPage';
 import LayoutRoute from './componenets/LayoutRoute';
 import AuthorizationPage from './pages/authorization/AuthorizationPage';
-import SearchPage from './pages/searchPage/SearchPage';
+import SearchPage from './pages/search/SearchPage';
 
 function App() {
   return (

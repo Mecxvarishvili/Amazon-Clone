@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SIGN_IN_PAGE } from '../routes';
 import * as Yup from 'yup'
+import Api from '../../componenets/api';
 
 const SignUpForm = () => {
     return (
@@ -31,7 +32,9 @@ const SignUpForm = () => {
                   .required("Type your password again")
             })}
             onSubmit={(values, {setSubmitting}) => {
-                alert("hello")
+                Api.fetchUserRegister(values)
+                    .then(res => res.json())
+                    .then()
             }}
             >
                 <Form>

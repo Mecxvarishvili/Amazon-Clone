@@ -76,10 +76,10 @@ const Header = () => {
                         <select value={categoryValue} onChange={(e) => setCategoryValue(e.target.value)} id="category" name={formCategoryName} >
                             <option value="" >All Product</option>
                             <option value="baby" >baby</option>
-                            <option value="beauty&personal-care" >beauty & personal-care</option>
+                            <option value="beauty&personal-care" >Beauty & Personal Care</option>
+                            <option value="computers" >Computers</option>
                             <option value="electronics" >Electronics</option>
-                            <option value="Health & Household" >Health & Household</option>
-                            <option value="health&personal-care" >Health & Personal-care</option>
+                            <option value="health&household" >Health & Household</option>
                             <option value="video-games" >Video Games</option>
                         </select>
                         <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} id="search" name={formSearchName} />

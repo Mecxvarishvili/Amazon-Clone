@@ -1,21 +1,52 @@
 const Api = {
-    baseApi: (url) => {
-       return fetch("http://localhost:8000/products/" + url)
+    baseApi: (url, method, value) => {
+        var headers = {}
+        var body = ""
+
+        if(typeof value === "string") {
+            headers = {
+             'Content-Type': 'application/json',
+             'Accept': 'application/json',
+             "Authorization": `Bearer ${value}`,
+           }
+        } else {
+            headers = {
+             'Content-Type': 'application/json',
+             'Accept': 'application/json',
+           }
+        }
+        if(typeof value === "object") {
+            body = JSON.stringify(value)
+        } else {
+            body = JSON.stringify()
+        }
+        return fetch("http://localhost:8000/products/" + url, {
+            method: method,
+            headers,
+            body
+        })  
     },
 
     fetchSingleProduct: (id) => {
-        return Api.baseApi(`product/${id}`)
-            .then(res => res.json())
-    },
-
-    fetchCategoryProduct: async (id)  => {
-        return Api.baseApi(`category/${id}`,)
-            .then(res => res.json())
+        return Api.baseApi(`product/${id}`, "GET")
+        .then(res => res.json())
     },
 
     fetchSearchProducts: (id) => {
-        return Api.baseApi(id)
-            .then(res => res.json())
+        return Api.baseApi(id, "GET")
+        .then(res => res.json())
+    },
+
+    fetchUserLogin: (value) => {
+        return Api.baseApi("login", "POST", value)
+    },
+
+    fetchUserToken: (token) => {
+       return Api.baseApi("token", "GET", token)
+    },
+
+    fetchUserRegister: (value) => {
+        return Api.baseApi("register", "POST", value)
     }
 }
 

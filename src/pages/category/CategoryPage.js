@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Api from '../../componenets/api';
-import ProductCard from '../searchPage/ProductCard';
+import ProductCard from '../search/ProductCard';
 
 const CategoryPage = () => {
     const [ data, setData ] = useState(false)

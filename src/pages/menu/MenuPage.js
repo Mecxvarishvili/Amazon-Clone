@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SimpleSlider from '../../componenets/SimpleSlider';
-import { CATEGORY_PAGE } from '../routes';
+import { CATEGORY_PAGE, SEARCH_PAGE } from '../routes';
 import MenuBanner from './MenuBanner';
 
 const MenuPage = () => {
@@ -31,7 +31,7 @@ const MenuPage = () => {
       title: "Shop by Category",
       category: [
         {
-          id: "computers&accessories",
+          id: "computers",
           title: "Computers & Accessories",
           img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/February/Dashboard/computer120x._SY85_CB468850970_.jpg",
         },
@@ -53,12 +53,7 @@ const MenuPage = () => {
       ]
     },
     {
-      id: "computers&accessories",
-      title: "Computers & Accessories",
-      img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
-    },
-    {
-      id: "beauty",
+      id: "beauty&personal-care",
       title: "Beauty picks",
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Beauty_1x._SY304_CB432774351_.jpg",
     },
@@ -73,16 +68,21 @@ const MenuPage = () => {
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg",
     },
     {
-      id: "health&personal-care",
+      id: "health&household",
       title: "Health & Personal Care",
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
+    },
+    {
+      id: "computers",
+      title: "Computers & Accessories",
+      img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
     },
   ]
 
   
   return (
     <div className="menuCont" >
-      <MenuBanner/>{
+      <MenuBanner/>
       <div className="categoryLayout" >
         <div className="cardsLayout" >
           {categoryData.map(data => (
@@ -91,30 +91,34 @@ const MenuPage = () => {
               <div className='title'>{data.title}</div>
               <div className='catCont'>
                 {data.category.map(cat => (
-                <div className="catBox" key={cat.id} >
-                  <Link to={CATEGORY_PAGE.replace(":id", cat.id)} >
-                    <img src ={cat.img} className="catImg" />
-                  </Link>
-                  <div className='catTitle' >{cat.title}</div>
-                </div>
+                  <div className="catBox" key={cat.id} >
+                    <form id="products-category" role="search" method="GET" action={SEARCH_PAGE}>
+                    <input readOnly name='category' value={cat.id} hidden/>
+                      <button type="submit" className="shopA submitButton">
+                        <img src ={cat.img} className="catImg" />
+                      </button>
+                      <div className='catTitle' >{cat.title}</div>
+                    </form>
+                  </div>
                 ))}
               </div>
             </div>
             :
-            <div className="card"  key={data.id}>
-              <div className='title'>{data.title}</div>
-              <div className="linkCont" >
-                <Link to={CATEGORY_PAGE.replace(":id", data.id)} >
-                  <img src={data.img} className="img" />
-                </Link>
+            <form  key={data.id} id="products-category" role="search" method="GET" action={SEARCH_PAGE}>
+              <div className="card" >
+                <input readOnly name='category' value={data.id} hidden/>
+                <div className='title'>{data.title}</div>
+                <button className="linkCont submitButton" >
+                    <img src={data.img} className="img" />
+                </button>
+                <button type="submit" className="shopA submitButton">
+                  <div className="shopNow" >see more</div>
+                </button >
               </div>
-              <Link className="shopA" to={CATEGORY_PAGE.replace(":id", data.id)} >
-                <div className="shopNow" >see more</div>
-              </Link>
-            </div>
+            </form>
           ))}
         </div>
-      </div>}
+      </div>
       <div>
       </div>
     </div>

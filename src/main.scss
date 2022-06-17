@@ -3,10 +3,10 @@
 @import "./layouts/footer/Footer.scss";
 @import "./pages/menu/Menu.scss";
 @import "./pages/product/ProductPage.scss";
-@import "./pages/category/CategoryPage.scss";
-@import "./pages/cartPage/CartPage.scss";
+/* @import "./pages/category/CategoryPage.scss"; deprecated */
+@import "./pages/cart/CartPage.scss";
 @import "./pages/authorization/Authorization.scss";
-@import "./pages/searchPage/SearchPage.scss";
+@import "./pages/search/SearchPage.scss";
 @import "~slick-carousel/slick/slick.css"; 
 @import "~slick-carousel/slick/slick-theme.css";
 

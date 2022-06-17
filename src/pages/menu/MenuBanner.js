@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick/lib/slider';
-import 'swiper/css';
 import SampleArrow from './SampleArrow';
 
 const MenuBanner = () => {
