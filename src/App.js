@@ -11,8 +11,47 @@ import CartPage from './pages/cart/CartPage';
 import LayoutRoute from './componenets/LayoutRoute';
 import AuthorizationPage from './pages/authorization/AuthorizationPage';
 import SearchPage from './pages/search/SearchPage';
+import { useEffect } from 'react';
+import Api from './componenets/api';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { setUser } from './store/user/userAction';
+import { setUserCart } from './store/cart/cartActions';
+import { getUserData, getUserId } from './store/selector';
 
 function App() {
+  const dispatch = useDispatch()
+  const userData = useSelector(getUserData)
+
+
+  useEffect(() => {
+    var products = []
+    Api.baseApi("", "GET")
+      .then(res => res.json())
+      .then(res => products = [...res])
+
+    const cookie = localStorage.getItem("Cookie")
+
+    if(cookie) {
+      
+      Api.fetchUserToken(cookie)
+        .then(res => {if(!!res.ok){
+          return res.json()
+        } else {
+          localStorage.removeItem("Cookie")
+          throw new Error(res.status)
+        }
+        })
+        .then(res => { 
+          const { cart, ...user } = res
+          dispatch(setUserCart(cart))
+          dispatch(setUser(user))
+        })
+        .catch((err) => {})
+    } 
+
+  }, [])
+
+
   return (
     <div>
       <Router>

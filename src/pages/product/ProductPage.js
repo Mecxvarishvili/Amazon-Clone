@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Api from '../../componenets/api';
 import ProductAttributes from './ProductAttributes';
 import { setCartProduct } from '../../store/cart/cartActions';
 import ProductQuantity from '../../componenets/ProductQuantity';
+import { getUserId } from '../../store/selector';
 
 const ProductPage = () => {
     const [ productData, setData ] = useState(false)
@@ -13,6 +14,7 @@ const ProductPage = () => {
 
     const dispatch = useDispatch()
     const {id} = useParams()
+    const userId = useSelector(getUserId)
 
     useEffect(() => {
 
@@ -59,7 +61,10 @@ const ProductPage = () => {
                         <div>deliver to ...</div>
                         <div>instock</div>
                         <ProductQuantity data={productData}  qty={qty} setQty={setQty} />
-                        <button onClick={() => dispatch(setCartProduct(productData, qty))} className="addCartButton" >add To cart</button>
+                        <button onClick={() => {
+                            Api.UpdateUser(userId, {_id: productData.id, qty: qty})
+                            dispatch(setCartProduct(productData, qty))
+                        }} className="addCartButton" >add To cart</button>
                     </div>
                 </div>
             </div>

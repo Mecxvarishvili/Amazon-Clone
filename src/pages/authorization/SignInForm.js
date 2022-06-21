@@ -15,7 +15,7 @@ const SignInForm = () => {
                 .then(res => res.json())
                 .then(res => {
                     console.log(res)
-                    /* window.location.replace(MENU_PAGE) */
+                    window.location.replace(MENU_PAGE)
                 })
         }
     }, [Token])
@@ -44,6 +44,7 @@ const SignInForm = () => {
                                 if(res.error) {
                                     setError(res.error)
                                 } else {
+                                    localStorage.setItem("Cookie", res.accesToken)
                                     setToken(res.accesToken)
                                 }
                                 

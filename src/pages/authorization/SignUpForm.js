@@ -1,12 +1,30 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SIGN_IN_PAGE } from '../routes';
 import * as Yup from 'yup'
 import Api from '../../componenets/api';
+import AuthorizationError from './AuthorizationError';
+import { MENU_PAGE } from '../routes';
+import { setUserAuthentication } from '../../store/user/userAction';
+import { useDispatch } from 'react-redux/es/exports';
 
 const SignUpForm = () => {
+    const [ error, setError ] = useState(false)
+    const [ Token, setToken ] = useState("")
+    const cookies = window.localStorage.getItem("Cookie")
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        console.log("effect")
+    }, [cookies])
+
     return (
+        error ?
+        <div>
+            <AuthorizationError error={error} setError={setError}/>
+        </div>
+        :
         <div className='inFormCont' >
             <div className='formTitle' >Create Account</div>
             <Formik
@@ -34,7 +52,15 @@ const SignUpForm = () => {
             onSubmit={(values, {setSubmitting}) => {
                 Api.fetchUserRegister(values)
                     .then(res => res.json())
-                    .then()
+                    .then(res => {
+                        if(res.error) {
+                            setError(res.error)
+                        } else {
+                            console.log("done")
+                            window.localStorage.setItem("Cookie", res.accessToken)
+                            window.location.replace(MENU_PAGE)
+                        }
+                    })
             }}
             >
                 <Form>
@@ -61,7 +87,7 @@ const SignUpForm = () => {
                     <ErrorMessage component="div" className="errMessage" name="rePassword" />
                     </div>
 
-
+                    {error !== "" && <div className='fetchErrMessage' >{error}</div>}
 
                     <button type="submit" className='submitButton' >Continue</button>
                 </Form>

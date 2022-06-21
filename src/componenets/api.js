@@ -47,6 +47,10 @@ const Api = {
 
     fetchUserRegister: (value) => {
         return Api.baseApi("register", "POST", value)
+    },
+
+    UpdateUser: (id, value) => {
+        return Api.baseApi(`user/${id}`, "PUT", value)
     }
 }
 

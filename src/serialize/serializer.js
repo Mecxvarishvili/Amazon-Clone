@@ -19,7 +19,7 @@ const serialize = {
             }
             return totalPrice
         } 
-    }
+    },
 }
 
 export default serialize
