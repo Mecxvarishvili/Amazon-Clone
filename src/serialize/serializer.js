@@ -20,6 +20,15 @@ const serialize = {
             return totalPrice
         } 
     },
+
+    updateUser: (cart) => {
+        const Cart = [...cart]
+        const newCart = []
+        for (var i in Cart ) {
+            newCart.push({id: Cart[i].id, qty: Cart[i].qty})
+        }
+        return newCart
+    }
 }
 
 export default serialize

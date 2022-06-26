@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div className="footer" >
             <div className="backToTop">
-            Back to top
+                <a href="#nav-top" >Back to top</a>
             </div>
             <div className='footCont' >
                 <div className="infoCont" >

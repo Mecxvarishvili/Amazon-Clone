@@ -27,7 +27,9 @@ const CartCard = (props) => {
                     </div>
                     <div className="detailCont" >
                         <ProductQuantity qty={data.qty} data={data} />
-                        <div onClick={() => dispatch(deleteCartProduct(data.id))} >delete</div>
+                        <div onClick={() => {
+                            dispatch(deleteCartProduct(data.id))
+                        }} >delete</div>
                     </div>
                 </div>
             </div>

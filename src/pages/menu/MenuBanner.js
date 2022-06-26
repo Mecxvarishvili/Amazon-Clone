@@ -17,21 +17,32 @@ const MenuBanner = () => {
         className: "bannerCont"
     }
 
+    const Link = window.location.href
+
     return (
-        <Slider {...settings} >
-            <div className='imgBox' >
-                <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" />
-            </div>
-            <div className='imgBox'>
-                <img src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg" />
-            </div>
-            <div className='imgBox'>
-                <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" />
-            </div>
-            <div className='imgBox'>
-                <img src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" />
-            </div>
-        </Slider>
+        <form>
+            <Slider {...settings} >
+                <div className='imgBox' >
+                    <a href={Link+"s?category=toys%26games"} >
+                    <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" />
+                    </a>
+                </div>
+                <div className='imgBox'>
+                    <img src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg" />
+                </div>
+                <div className='imgBox'>
+                    <a href={Link+'s?category=computers%26accessories'} >
+                        <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" />
+                    </a>
+                </div>
+                <div className='imgBox'>
+                    <a href={Link+'s?category=beauty%26personal-care'} >
+                        <img src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" />
+                            {/* https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg  */}
+                    </a>
+                </div>
+            </Slider>
+        </form>
     );
 };
 

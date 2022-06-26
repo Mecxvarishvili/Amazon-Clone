@@ -23,7 +23,7 @@ const CartPage = () => {
                     <div className="forPrice">Price</div>
                     <div className="cardsCont" >
                         {cartData && cartData.map(data => {
-                            return<CartCard data={data} key={data.id} />
+                            return <CartCard data={data} key={data.id} />
                         })}
                     </div>
                 </div>

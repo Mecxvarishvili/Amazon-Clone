@@ -17,11 +17,10 @@ const ProductPage = () => {
     const userId = useSelector(getUserId)
 
     useEffect(() => {
-
         Api.fetchSingleProduct(id)
         .then(res => setData(res))
-
     }, [])
+
     return (
         productData && <div className="productCont">
             <div className="prodContainer">
@@ -62,7 +61,7 @@ const ProductPage = () => {
                         <div>instock</div>
                         <ProductQuantity data={productData}  qty={qty} setQty={setQty} />
                         <button onClick={() => {
-                            Api.UpdateUser(userId, {_id: productData.id, qty: qty})
+                            /* Api.UpdateUser(userId, {_id: productData.id, qty: qty}) */
                             dispatch(setCartProduct(productData, qty))
                         }} className="addCartButton" >add To cart</button>
                     </div>

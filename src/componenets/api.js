@@ -5,9 +5,9 @@ const Api = {
 
         if(typeof value === "string") {
             headers = {
-             'Content-Type': 'application/json',
-             'Accept': 'application/json',
-             "Authorization": `Bearer ${value}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            "Authorization": `Bearer ${value}`,
            }
         } else {
             headers = {
@@ -20,7 +20,7 @@ const Api = {
         } else {
             body = JSON.stringify()
         }
-        return fetch("http://localhost:8000/products/" + url, {
+        return fetch("http://localhost:8000/ac/" + url, {
             method: method,
             headers,
             body
@@ -49,7 +49,7 @@ const Api = {
         return Api.baseApi("register", "POST", value)
     },
 
-    UpdateUser: (id, value) => {
+    updateUser: (id, value) => {
         return Api.baseApi(`user/${id}`, "PUT", value)
     }
 }

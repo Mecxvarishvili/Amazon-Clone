@@ -11,13 +11,9 @@ import { useDispatch } from 'react-redux/es/exports';
 
 const SignUpForm = () => {
     const [ error, setError ] = useState(false)
-    const [ Token, setToken ] = useState("")
-    const cookies = window.localStorage.getItem("Cookie")
+   /*  const [ Token, setToken ] = useState("") */
+    const Token = window.localStorage.getItem("Token")
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        console.log("effect")
-    }, [cookies])
 
     return (
         error ?
@@ -57,7 +53,7 @@ const SignUpForm = () => {
                             setError(res.error)
                         } else {
                             console.log("done")
-                            window.localStorage.setItem("Cookie", res.accessToken)
+                            window.localStorage.setItem("Token", res.accessToken)
                             window.location.replace(MENU_PAGE)
                         }
                     })

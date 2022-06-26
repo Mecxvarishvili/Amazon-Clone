@@ -1,61 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from "../../img/white-logo.png"
 import cartImg from "../../img/whiteCart.png"
-import { CART_PAGE, MENU_PAGE, SEARCH_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
+import { CART_PAGE, MENU_PAGE, PROFILE_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
 import serialize from "../../serialize/serializer"
-import { getCartData } from '../../store/selector';
+import { getCartData, getUserReducer } from '../../store/selector';
+import SearchForm from './SearchForm';
 
 
 
 const Header = () => {
-
+    const {isLoggedIn, user} = useSelector(getUserReducer)
     const cartData = useSelector(getCartData)
-    const [ searchValue, setSearchValue ] = useState("")
-    const [ categoryValue, setCategoryValue ] = useState("")
-
-    const [ formCategoryName, setFormSName ] = useState("")
-    const [ formSearchName, setFormIName ] = useState("")
-
-    const [ pathName, setPathName ] = useState(SEARCH_PAGE)
-    const location = useLocation()
-    const useQuery = () => new URLSearchParams(useLocation().search);
-    const query = useQuery()
-
-    const querySet = (q, setQ) => {
-        if(query.get(q)) {
-            setQ(query.get(q))
-        } else {
-            setQ("")
-        }
-
-    }
-
-    const handleSubmit = (value, updateState, name) => {
-        if(value === "") {
-            updateState("")
-        } else {
-            updateState(name)
-        }
-    }
-
-    const formSubmit = () => {
-        handleSubmit(categoryValue, setFormSName, "category")
-        handleSubmit(searchValue, setFormIName, "search")
-        if(categoryValue === "" && searchValue === "") {
-            setPathName(MENU_PAGE)
-        } 
-    }
-
-    useEffect(() => {
-        querySet("search", setSearchValue)
-        querySet("category", setCategoryValue)
-    }, [location.pathname])
-
-
+    if(isLoggedIn) {var userName = user.name.split(" ")[0]}
     return (
         <div className='navBar' >
+            <a id="nav-top"></a>
             <div className="navTop" >
                 <div className='navLeft'>
                     <div className="logo outline-hov" >
@@ -71,29 +32,11 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div className='navCenter' >
-                    <form onSubmit={() => formSubmit() } id="products-search" role="search" method="GET" action={pathName}>
-                        <select value={categoryValue} onChange={(e) => setCategoryValue(e.target.value)} id="category" name={formCategoryName} >
-                            <option value="" >All Product</option>
-                            <option value="baby" >baby</option>
-                            <option value="beauty&personal-care" >Beauty & Personal Care</option>
-                            <option value="computers" >Computers</option>
-                            <option value="electronics" >Electronics</option>
-                            <option value="health&household" >Health & Household</option>
-                            <option value="video-games" >Video Games</option>
-                        </select>
-                        <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} id="search" name={formSearchName} />
-                        <input  type="submit" hidden />
-                        <button type="submit" className='searchBtn' >
-                            <img src="https://icon-library.com/images/svg-search-icon/svg-search-icon-16.jpg" />
-                        </button>
-
-                    </form>
-                </div>
+                <SearchForm/>
                 <div className='navRight' >
                     <Link to="/" className="languageCont outline-hov" >Language</Link>
-                    <Link to={SIGN_IN_PAGE} className="signInCont outline-hov">
-                        <div className="sgnT" >Hello, Sign in</div>
+                    <Link to={PROFILE_PAGE} className="signInCont outline-hov">
+                        <div className="sgnT" >Hello, {isLoggedIn ? userName : "Sign in"}</div>
                         <div className="sgnB" >Account & Lists</div>
                     </Link>
                     <Link to={CART_PAGE} className="cartCounterCont outline-hov" >

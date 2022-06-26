@@ -44,7 +44,7 @@ const SignInForm = () => {
                                 if(res.error) {
                                     setError(res.error)
                                 } else {
-                                    localStorage.setItem("Cookie", res.accesToken)
+                                    localStorage.setItem("Token", res.accesToken)
                                     setToken(res.accesToken)
                                 }
                                 
