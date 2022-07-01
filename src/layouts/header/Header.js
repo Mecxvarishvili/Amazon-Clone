@@ -6,14 +6,14 @@ import cartImg from "../../img/whiteCart.png"
 import { CART_PAGE, MENU_PAGE, PROFILE_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
 import serialize from "../../serialize/serializer"
 import { getCartData, getUserReducer } from '../../store/selector';
-import SearchForm from './SearchForm';
+import SearchBar from './SearchBar';
 
 
 
 const Header = () => {
     const {isLoggedIn, user} = useSelector(getUserReducer)
     const cartData = useSelector(getCartData)
-    if(isLoggedIn) {var userName = user.name.split(" ")[0]}
+    if(user.name) {var userName = user.name.split(" ")[0]}
     return (
         <div className='navBar' >
             <a id="nav-top"></a>
@@ -32,11 +32,11 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <SearchForm/>
+                <SearchBar/>
                 <div className='navRight' >
                     <Link to="/" className="languageCont outline-hov" >Language</Link>
                     <Link to={PROFILE_PAGE} className="signInCont outline-hov">
-                        <div className="sgnT" >Hello, {isLoggedIn ? userName : "Sign in"}</div>
+                        <div className="sgnT" >Hello, {user.name ? userName : "Sign in"}</div>
                         <div className="sgnB" >Account & Lists</div>
                     </Link>
                     <Link to={CART_PAGE} className="cartCounterCont outline-hov" >

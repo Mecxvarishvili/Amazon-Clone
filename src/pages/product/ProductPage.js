@@ -6,11 +6,13 @@ import ProductAttributes from './ProductAttributes';
 import { setCartProduct } from '../../store/cart/cartActions';
 import ProductQuantity from '../../componenets/ProductQuantity';
 import { getUserId } from '../../store/selector';
+import Loader from '../../componenets/Loader';
 
 const ProductPage = () => {
     const [ productData, setData ] = useState(false)
     const [ img, setImg ] = useState(0)
     const [ qty, setQty ] = useState(1)
+    const [ isLoading, setIsLoading ] = useState(true)
 
     const dispatch = useDispatch()
     const {id} = useParams()
@@ -18,11 +20,15 @@ const ProductPage = () => {
 
     useEffect(() => {
         Api.fetchSingleProduct(id)
-        .then(res => setData(res))
+        .then(res => {
+            setData(res)
+            setIsLoading(false)
+        })
     }, [])
 
     return (
-        productData && <div className="productCont">
+        <Loader isLoading={isLoading} >
+        {productData && <div className="productCont">
             <div className="prodContainer">
                 <div className="leftCol" >
                     <div className="images" >
@@ -67,7 +73,8 @@ const ProductPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>}
+        </Loader>
     );
 };
 

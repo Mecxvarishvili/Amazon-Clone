@@ -1,4 +1,4 @@
-import { DELETE_CART_PRODUCT, SET_CART_PRODUCT, SET_CART_PRODUCT_QTY, SET_USER_CART } from "./cartActionConst"
+import { DELETE_CART_PRODUCT, SET_CART_PRODUCT, SET_CART_PRODUCT_QTY, SET_QTY_FROM_CART, SET_USER_CART } from "./cartActionConst"
 import Api from "../../componenets/api"
 
 
@@ -9,9 +9,9 @@ export const setCartProduct = (data, qty) => {
     }
 }
 
-export const setCartProduc = (data, qty) => {
+export const setQtyFromCart = (data, qty) => {
     return {
-        type: SET_CART_PRODUCT_QTY,
+        type: SET_QTY_FROM_CART,
         payload: {data, qty}
     }
 }

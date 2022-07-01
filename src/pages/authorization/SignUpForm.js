@@ -6,13 +6,11 @@ import * as Yup from 'yup'
 import Api from '../../componenets/api';
 import AuthorizationError from './AuthorizationError';
 import { MENU_PAGE } from '../routes';
-import { setUserAuthentication } from '../../store/user/userAction';
+import { setUser, setUserAuthentication } from '../../store/user/userAction';
 import { useDispatch } from 'react-redux/es/exports';
 
 const SignUpForm = () => {
     const [ error, setError ] = useState(false)
-   /*  const [ Token, setToken ] = useState("") */
-    const Token = window.localStorage.getItem("Token")
     const dispatch = useDispatch()
 
     return (
@@ -52,9 +50,8 @@ const SignUpForm = () => {
                         if(res.error) {
                             setError(res.error)
                         } else {
-                            console.log("done")
                             window.localStorage.setItem("Token", res.accessToken)
-                            window.location.replace(MENU_PAGE)
+                            dispatch(setUser(res.data))
                         }
                     })
             }}

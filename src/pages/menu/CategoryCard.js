@@ -1,9 +1,9 @@
 import React from 'react';
 import { SEARCH_PAGE } from '../routes';
+import { Link } from 'react-router-dom';
 
-const MenuCard = (props) => {
+const CategoryCard = (props) => {
     const { data, i } = props
-    const Link = window.location.href
     return (
         data.category ?
         <div className="card" >
@@ -12,10 +12,10 @@ const MenuCard = (props) => {
             <div className='catCont'>
                 {data.category.map(cat => (
                     <div className="catBox" key={cat.id} >
-                        <a href={Link + `s?search=${cat.id}`} >
+                        <Link to={SEARCH_PAGE + `?search=${cat.id}`} >
                         <img src ={cat.img} className="catImg" />
                         <div className='catTitle' >{cat.title}</div>
-                        </a>
+                        </Link>
                     </div>
                 ))}
                 </div>:
@@ -26,7 +26,7 @@ const MenuCard = (props) => {
                             <img src ={cat.img} className="catImg" />
                         </div>
                         <div className='catTitle' >{cat.title}</div>
-                        <a className='aTag' href={Link + `s?category=${cat.id}`} ></a>
+                        <Link className='aTag' to={SEARCH_PAGE + `?category=${cat.id}`} ></Link>
                     </div>
                 ))}
                 </div>
@@ -35,14 +35,15 @@ const MenuCard = (props) => {
         :
         <div className="card" >
           <div className='title'>{data.title}</div>
-          <a href={Link + `s?category=${data.id}`} className="linkCont submitButton" >
+          <Link to={SEARCH_PAGE+`?category=${data.id}`} className="linkCont submitButton" >
               <img src={data.img} className="img" />
-          </a>
-          <a href={Link + `s?category=${data.id}`} className="shopA submitButton">
+          </Link>
+          <Link to={SEARCH_PAGE+`?category=${data.id}`} className="shopA submitButton">
             <div className="shopNow" >see more</div>
-          </a>
+          </Link>
         </div>
     );
 };
 
-export default MenuCard;
+export default CategoryCard;
+/* Link + `s?category=${data.id} `*/

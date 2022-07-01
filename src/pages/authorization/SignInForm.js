@@ -4,18 +4,21 @@ import { Link } from 'react-router-dom';
 import { SIGN_UP_PAGE, MENU_PAGE } from '../routes';
 import Api from '../../componenets/api';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { setUserAuthentication, setUser } from '../../store/user/userAction';
 
 const SignInForm = () => {
     const [ Token, setToken ] = useState("")
     const [ error, setError ] = useState("")
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if(Token !== "") {
             Api.fetchUserToken(Token)
                 .then(res => res.json())
                 .then(res => {
-                    console.log(res)
-                    window.location.replace(MENU_PAGE)
+                    dispatch(setUser(res))
+                    dispatch(setUserAuthentication(true))
                 })
         }
     }, [Token])

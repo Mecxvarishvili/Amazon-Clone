@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import SimpleSlider from '../../componenets/SimpleSlider';
-import { CATEGORY_PAGE, SEARCH_PAGE } from '../routes';
 import MenuBanner from './MenuBanner';
-import MenuCard from './MenuCard';
+import CategoryCard from './CategoryCard';
 
 const MenuPage = () => {
 
@@ -32,7 +29,7 @@ const MenuPage = () => {
       title: "Shop by Category",
       category: [
         {
-          id: "computers",
+          id: "computers%26accessories",
           title: "Computers & Accessories",
           img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/February/Dashboard/computer120x._SY85_CB468850970_.jpg",
         },
@@ -74,7 +71,7 @@ const MenuPage = () => {
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
     },
     {
-      id: "computers",
+      id: "computers%26accessories",
       title: "Computers & Accessories",
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
     },
@@ -87,7 +84,7 @@ const MenuPage = () => {
       <div className="categoryLayout" >
         <div className="cardsLayout" >
           {categoryData.map((data, i) => (
-            <MenuCard key={i} data={data} i={i} />
+            <CategoryCard key={i} data={data} i={i} />
           ))}
         </div>
       </div>
