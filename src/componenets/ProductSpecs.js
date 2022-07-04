@@ -1,14 +1,17 @@
 import React from 'react';
 
 const ProductSpecs = (props) => {
+    const spec = props.spec
     return (
-        props.specs == "choice" ?
-        <div>
-            amazon's <span>choice</span>
-        </div>
-        :
-        <div>
-            best Seller
+        <div className="productSpecCont" >
+            {props.spec == "choic" ?
+            <span className="amazonChoice" >
+                Amazon's <span className="choice" >Choice</span>
+            </span>
+            :
+            <span className="bestSeller" >
+                Best Seller
+            </span>}
         </div>
     );
 };

@@ -44,16 +44,7 @@ const CartPage = () => {
                             </div>
                             <div className="emptyCont" >
                                 <div className='emptyTitle'>Your Amazon Cart is empty</div>
-                                <div className="buttonsCont">
-                                    <Link to={SIGN_IN_PAGE}>
-                                        <button className="signInBtn" >Sign in to your account</button>
-                                    </Link>
-                                    <Link to={SIGN_UP_PAGE}>
-                                        <button className="signUpBtn">Sign up now</button>
-                                    </Link>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                     <div className="emptyBox" ></div>

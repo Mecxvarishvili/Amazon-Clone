@@ -5,7 +5,7 @@ import { SIGN_IN_PAGE } from '../routes';
 import * as Yup from 'yup'
 import Api from '../../componenets/api';
 import AuthorizationError from './AuthorizationError';
-import { MENU_PAGE } from '../routes';
+import { HOME_PAGE } from '../routes';
 import { setUser, setUserAuthentication } from '../../store/user/userAction';
 import { useDispatch } from 'react-redux/es/exports';
 
@@ -51,7 +51,7 @@ const SignUpForm = () => {
                             setError(res.error)
                         } else {
                             window.localStorage.setItem("Token", res.accessToken)
-                            dispatch(setUser(res.data))
+                            dispatch(setUser(res.user))
                         }
                     })
             }}

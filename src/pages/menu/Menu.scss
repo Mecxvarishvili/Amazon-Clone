@@ -67,7 +67,8 @@
         
         .cardsLayout {
             display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(300px,auto));
+            grid-template-columns: repeat(auto-fill,minmax(320px,auto));
+            justify-content: center;
             max-width: 1480px;
             margin: 0 auto;
             padding: 20px 0;
@@ -79,9 +80,9 @@
                 padding-top: 20px;
                 padding-bottom: 15px;
                 position: relative;
-                margin: 10px;
                 display: flex;
                 flex-direction: column;
+                margin: 10px;
 
                 .title {
                     font-size: 21px!important;

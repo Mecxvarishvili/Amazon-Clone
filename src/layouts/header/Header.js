@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from "../../img/white-logo.png"
 import cartImg from "../../img/whiteCart.png"
-import { CART_PAGE, MENU_PAGE, PROFILE_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
+import { CART_PAGE, HOME_PAGE, PROFILE_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
 import serialize from "../../serialize/serializer"
 import { getCartData, getUserReducer } from '../../store/selector';
 import SearchBar from './SearchBar';
@@ -20,7 +20,7 @@ const Header = () => {
             <div className="navTop" >
                 <div className='navLeft'>
                     <div className="logo outline-hov" >
-                        <Link to={MENU_PAGE}>
+                        <Link to={HOME_PAGE}>
                             <img src={logo} />
                         </Link>
                     </div>

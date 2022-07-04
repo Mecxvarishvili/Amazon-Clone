@@ -2,7 +2,7 @@ import './App.css';
 import Header from './layouts/header/Header';
 import Footer from "./layouts/footer/Footer"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { CART_PAGE, MENU_PAGE, PRODUCT_PAGE, PROFILE_PAGE, SEARCH_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from './pages/routes';
+import { CART_PAGE, HOME_PAGE, PRODUCT_PAGE, PROFILE_PAGE, SEARCH_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from './pages/routes';
 import MenuPage from './pages/menu/MenuPage';
 import NotFound from './pages/notFound/NotFound';
 import ProductPage from './pages/product/ProductPage';
@@ -15,7 +15,7 @@ import Api from './componenets/api';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { setUser } from './store/user/userAction';
 import { setUserCart } from './store/cart/cartActions';
-import { getUserData, getUserId, getCartData } from './store/selector';
+import { getUserId, getCartData } from './store/selector';
 import serialize from './serialize/serializer';
 import PrivateRoute from './pages/authorization/PrivateRoute';
 import ProfilePage from './pages/profile/ProfilePage';
@@ -43,6 +43,7 @@ function App() {
           return res.json()
         } else {
           localStorage.removeItem("Token")
+          setIsLoading(true)
           throw new Error(res.status)
         }
         })
@@ -72,7 +73,7 @@ function App() {
         <LayoutRoute element={<Header />} />
         <Routes>
           <Route path="*" element={<NotFound />} />
-          <Route path={MENU_PAGE} element={<MenuPage/>}/>
+          <Route path={HOME_PAGE} element={<MenuPage/>}/>
           <Route path={PRODUCT_PAGE} element={<ProductPage/>} />
           <Route path={SEARCH_PAGE} element={<SearchPage/>} />
           <Route path={SIGN_IN_PAGE} element={<AuthorizedRoute  child={<AuthorizationPage/>} />} />

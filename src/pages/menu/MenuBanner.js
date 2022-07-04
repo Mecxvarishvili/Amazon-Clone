@@ -31,7 +31,7 @@ const MenuBanner = () => {
                     <img src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg" />
                 </div>
                 <div className='imgBox'>
-                    <a href={Link+'s?category=computers%26accessories'} >
+                    <a href={Link+'s?category=computers'} >
                         <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" />
                     </a>
                 </div>

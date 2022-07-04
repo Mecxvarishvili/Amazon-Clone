@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../img/black-logo.png'
-import { MENU_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from '../routes';
+import { HOME_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from '../routes';
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
 
@@ -12,7 +12,7 @@ const AuthorizationPage = () => {
     return (
         <div className='authorizationPage' >
             <div className="imgCont">
-                <Link to={MENU_PAGE} >
+                <Link to={HOME_PAGE} >
                     <img src={image} />
                 </Link>
             </div>

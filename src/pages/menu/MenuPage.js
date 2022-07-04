@@ -29,7 +29,7 @@ const MenuPage = () => {
       title: "Shop by Category",
       category: [
         {
-          id: "computers%26accessories",
+          id: "computers",
           title: "Computers & Accessories",
           img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/February/Dashboard/computer120x._SY85_CB468850970_.jpg",
         },
@@ -71,7 +71,7 @@ const MenuPage = () => {
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
     },
     {
-      id: "computers%26accessories",
+      id: "computers",
       title: "Computers & Accessories",
       img: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
     },

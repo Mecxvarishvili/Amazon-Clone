@@ -1,7 +1,7 @@
 import React from 'react';
 import { getUserData } from '../../store/selector';
 import { useSelector } from 'react-redux';
-import { MENU_PAGE } from '../routes';
+import { HOME_PAGE } from '../routes';
 
 const PencilImg = () => {
     return (
@@ -34,7 +34,7 @@ const ProfilePage = () => {
                     <div className="line4">Not set</div>
                 </div>
                     <button className="logOutBtn" onClick={() => {
-                        window.location.replace(MENU_PAGE)
+                        window.location.replace(HOME_PAGE)
                         localStorage.removeItem("Token")
                     }} >Sign Out</button>
             </div>

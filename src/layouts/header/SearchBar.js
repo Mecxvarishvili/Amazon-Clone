@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { SEARCH_PAGE, MENU_PAGE } from '../../pages/routes';
+import { SEARCH_PAGE, HOME_PAGE } from '../../pages/routes';
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserAuthentication, getUserData } from '../../store/selector';
@@ -41,7 +41,7 @@ const SearchBar = () => {
         handleSubmit(categoryValue, setFormSName, "category")
         handleSubmit(searchValue, setFormIName, "search")
         if(categoryValue === "" && searchValue === "") {
-            setPathName(MENU_PAGE)
+            setPathName(HOME_PAGE)
         } 
     }
 

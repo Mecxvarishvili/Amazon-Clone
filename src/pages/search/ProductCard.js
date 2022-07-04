@@ -10,7 +10,7 @@ const ProductCard = (props) => {
     return (
         <div className="cardBox" >
             <div className="card" >
-                <ProductSpecs specs={"choice"} />
+                <ProductSpecs spec={"choice"} />
                 <div className="imgCont" >
                     <Link to={PRODUCT_PAGE.replace(":id", data.id)}>
                         <img src={data.gallery[0]} />
@@ -19,6 +19,7 @@ const ProductCard = (props) => {
                 <Link className="titleA" to={PRODUCT_PAGE.replace(":id", data.id)} >
                     <div className="title" >{data.name}</div>
                 </Link>
+                
             </div>
         </div>
     );
