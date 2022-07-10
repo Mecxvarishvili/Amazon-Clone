@@ -11,15 +11,15 @@ const ProductQuantity = (props) => {
     return (
         <div className="qtyCont" >
             <div onClick={() => setCl("qtyShow")} >Qty: {qty}</div>
-            <div onClick={() => setCl("qtyHide")} className={cl} >
+            <ul onClick={() => setCl("qtyHide")} className={cl} >
                 {!props.setQty && <div onClick={() => {dispatch(setQtyFromCart(data, 0))}} >0 (delete)</div>}
                 {localQty.map((el, index) => {
-                    return <div key={index} onClick={() => {
+                    return <li role="option" key={index} onClick={() => {
                         if(!props.setQty){dispatch(setQtyFromCart(data, el))}
                         else { props.setQty(el)}
-                    }} >{el}</div>
+                    }} >{el}</li>
                 })}
-            </div>
+            </ul >
         </div>
     );
 };

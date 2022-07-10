@@ -20,8 +20,12 @@
             font-size: 15px;
             line-height: 20px;
             margin: 20px 0;
+            .search {
+                color: #c45500;
+                font-weight: 700;
+            }
             
-            span {
+            .category {
                 color: #c45500;
                 text-transform: capitalize;
                 font-weight: 700;

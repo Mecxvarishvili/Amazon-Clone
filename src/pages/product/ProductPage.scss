@@ -33,7 +33,7 @@
                     border-width: 1px;
                     border-style: solid;
                     border-radius: 2px;
-                    
+                    cursor: pointer;
 
                     .img {
                         object-fit: cover;
@@ -63,13 +63,46 @@
                 font-weight: 400;
             }
 
+            .brand {
+                color: #007185;
+                text-transform: capitalize;
+                margin: 10px 0;
+            }
+
+            .priceCont {
+                margin: 10px 0;
+                .price1 {
+                    color: #565959;
+                    font-size: 14px;
+                    letter-spacing: 0.4px;
+                }
+                .price2 {
+                    color: #B12704;
+                    font-size: 18px;
+                }
+            }
+
             .attrCont {
 
                 .attrBox {
                     display: flex;
                     justify-content: space-between;
+
+                    .id {
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #0F1111;
+                        font-weight: 600;
+                    }
+
+                    .value {
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #0F1111;
+                    }
                 }
             }
+
         }
         
         .rightCol {
@@ -80,6 +113,18 @@
 
             .inRightCol {
                 padding: 14px 18px;
+
+                .inStock {
+                    color: #007600;
+                    font-size: 18px;
+                    line-height: 24px;
+                    text-transform: capitalize;
+                    margin: 10px 0;
+                }
+                
+                .outOfStock {
+                    color: red;
+                }
 
                 //qty
 
@@ -112,6 +157,10 @@
                         width: 70px;
                         height: 100%;
                         text-align: start;
+
+                        div {
+                            background-color: white;
+                        }
                         
                     }
                 }

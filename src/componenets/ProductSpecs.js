@@ -3,8 +3,9 @@ import React from 'react';
 const ProductSpecs = (props) => {
     const spec = props.spec
     return (
+        props.spec ?
         <div className="productSpecCont" >
-            {props.spec == "choic" ?
+            {props.spec == "choice" ?
             <span className="amazonChoice" >
                 Amazon's <span className="choice" >Choice</span>
             </span>
@@ -12,7 +13,8 @@ const ProductSpecs = (props) => {
             <span className="bestSeller" >
                 Best Seller
             </span>}
-        </div>
+        </div> : 
+        <></>
     );
 };
 

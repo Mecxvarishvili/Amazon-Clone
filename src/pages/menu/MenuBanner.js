@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick/lib/slider';
+import { SEARCH_PAGE } from '../routes';
 import SampleArrow from './SampleArrow';
+import { Link } from "react-router-dom"
 
 const MenuBanner = () => {
     const settings = {
@@ -17,29 +19,30 @@ const MenuBanner = () => {
         className: "bannerCont"
     }
 
-    const Link = window.location.href
+    // const Link = window.location.href
 
     return (
         <form>
             <Slider {...settings} >
                 <div className='imgBox' >
-                    <a href={Link+"s?category=toys%26games"} >
-                    <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" />
-                    </a>
+                    <Link to={SEARCH_PAGE +"?category=toys%26games"} >
+                        <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" />
+                    </Link>
                 </div>
                 <div className='imgBox'>
-                    <img src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg" />
+                    <Link to={SEARCH_PAGE+"?category=health%26household"} >
+                        <img src="https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg" />
+                    </Link>
                 </div>
                 <div className='imgBox'>
-                    <a href={Link+'s?category=computers'} >
+                    <Link to={SEARCH_PAGE +"?category=computers"} >
                         <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" />
-                    </a>
+                    </Link>
                 </div>
                 <div className='imgBox'>
-                    <a href={Link+'s?category=beauty%26personal-care'} >
+                    <Link to={SEARCH_PAGE +"?category=beauty%26personal-care"} >
                         <img src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" />
-                            {/* https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg  */}
-                    </a>
+                    </Link>
                 </div>
             </Slider>
         </form>

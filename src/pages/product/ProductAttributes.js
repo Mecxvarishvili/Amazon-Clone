@@ -9,8 +9,8 @@ const ProductAttributes = (props) => {
         </div>
         :
         <div className="attrBox">
-            <div>{attr.displayId}</div>
-            <div>{attr.value}</div>
+            <div className="id" >{attr.displayId}</div>
+            <div className="value" >{attr.value}</div>
         </div>
     );
 };

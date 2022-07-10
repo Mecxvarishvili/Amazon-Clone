@@ -317,6 +317,17 @@
   }
 }
 
+.starCont img {
+  width: 95px;
+  height: 18px;
+}
+
+.line {
+  height: 1px;
+  background-color: #E7E7E7;
+  margin: 10px 0;
+}
+
 .footer {
   background-color: #232F3E;
 }
@@ -582,6 +593,7 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 2px;
+  cursor: pointer;
 }
 .productCont .prodContainer .leftCol .images .sImage .img {
   object-fit: cover;
@@ -604,9 +616,37 @@
   font-size: 24px;
   font-weight: 400;
 }
+.productCont .prodContainer .centerCol .brand {
+  color: #007185;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+.productCont .prodContainer .centerCol .priceCont {
+  margin: 10px 0;
+}
+.productCont .prodContainer .centerCol .priceCont .price1 {
+  color: #565959;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+}
+.productCont .prodContainer .centerCol .priceCont .price2 {
+  color: #B12704;
+  font-size: 18px;
+}
 .productCont .prodContainer .centerCol .attrCont .attrBox {
   display: flex;
   justify-content: space-between;
+}
+.productCont .prodContainer .centerCol .attrCont .attrBox .id {
+  font-size: 14px;
+  line-height: 20px;
+  color: #0F1111;
+  font-weight: 600;
+}
+.productCont .prodContainer .centerCol .attrCont .attrBox .value {
+  font-size: 14px;
+  line-height: 20px;
+  color: #0F1111;
 }
 .productCont .prodContainer .rightCol {
   width: 245px;
@@ -616,6 +656,16 @@
 }
 .productCont .prodContainer .rightCol .inRightCol {
   padding: 14px 18px;
+}
+.productCont .prodContainer .rightCol .inRightCol .inStock {
+  color: #007600;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+.productCont .prodContainer .rightCol .inRightCol .outOfStock {
+  color: red;
 }
 .productCont .prodContainer .rightCol .inRightCol .qtyCont {
   position: relative;
@@ -646,6 +696,9 @@
   width: 70px;
   height: 100%;
   text-align: start;
+}
+.productCont .prodContainer .rightCol .inRightCol .qtyCont .qtyShow div {
+  background-color: white;
 }
 .productCont .prodContainer .rightCol .inRightCol .addCartButton {
   width: 100%;
@@ -1023,7 +1076,11 @@
   line-height: 20px;
   margin: 20px 0;
 }
-.categoryPage .cardsCont .resultBox span {
+.categoryPage .cardsCont .resultBox .search {
+  color: #c45500;
+  font-weight: 700;
+}
+.categoryPage .cardsCont .resultBox .category {
   color: #c45500;
   text-transform: capitalize;
   font-weight: 700;

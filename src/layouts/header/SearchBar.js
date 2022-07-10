@@ -57,7 +57,7 @@ const SearchBar = () => {
                     <option value="" >All Product</option>
                     <option value="baby" >Baby</option>
                     <option value="beauty&personal-care" >Beauty & Personal Care</option>
-                    <option value="computers&accessories" >Computers</option>
+                    <option value="computers" >Computers</option>
                     <option value="dresses" >Dresses</option>
                     <option value="electronics" >Electronics</option>
                     <option value="health&household" >Health & Household</option>
