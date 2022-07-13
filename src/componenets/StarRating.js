@@ -6,27 +6,27 @@ const StarRating = (props) => {
     const handleStar = (x) => {
         switch(x) {
             case 5:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 4.5:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 4:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 3:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 3.5:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 2:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 2.5:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 1.5:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 1:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 0.5:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
             case 0:
-                return <img src={`stars/star${x}.png`} />
+                return <img src={`../stars/star${x}.png`} />
         }
     }
 

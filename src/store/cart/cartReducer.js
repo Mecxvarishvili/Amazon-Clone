@@ -28,12 +28,12 @@ function destructuringState(array) {
             }
         case SET_QTY_FROM_CART: 
             var thisState = destructuringState(state)
-            var { data, qty } = action.payload
-            thisState.find(data => data.id === data.id).qty = qty
+            var { id, qty } = action.payload
+            thisState.find(data => data.id === id).qty = qty
             if(qty) {
             return [...thisState]
             } else {
-                var deletedData = state.filter(data => {return data.id !== action.payload.data.id})
+                var deletedData = state.filter(data => {return data.id !== id})
                 return[...deletedData]
             }
         case SET_USER_CART:

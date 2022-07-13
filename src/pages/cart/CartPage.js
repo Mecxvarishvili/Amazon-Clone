@@ -12,7 +12,6 @@ const CartPage = () => {
     /* useEffect(() => {
         setData(cartSelector)
     }, [cartSelector]) */
-    console.log(cartData)
 
     return (
         <div className="cartPage" >

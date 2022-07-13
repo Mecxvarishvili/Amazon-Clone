@@ -262,6 +262,27 @@
   color: #E67A00;
 }
 
+.qtyCont .qtyInput {
+  font-size: 13px;
+  line-height: 19px;
+  height: 25px;
+  width: 63px;
+  padding: 3px 7px;
+  border: 1px solid #888C8C;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(15, 17, 17, 0.15) inset;
+  outline: 0;
+  -webkit-appearance: none;
+}
+.qtyCont .qtyButton {
+  font-size: 11px;
+  height: 20px;
+  width: 50x;
+  background-color: #FFD814;
+  border: 1px solid #FCD200;
+  border-radius: 8px;
+}
+
 .errorPage .imgCont {
   text-align: center;
   margin: 30px 0;
@@ -328,6 +349,15 @@
   margin: 10px 0;
 }
 
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .footer {
   background-color: #232F3E;
 }
@@ -382,10 +412,6 @@
   line-height: 25px;
   color: #DDDDDD;
   font-size: 14px;
-}
-.footer .line {
-  border-top: 1px solid #3a4553;
-  margin-top: 40px;
 }
 
 .menuCont {
@@ -656,6 +682,42 @@
 }
 .productCont .prodContainer .rightCol .inRightCol {
   padding: 14px 18px;
+  /* .qtyCont {
+      position: relative;
+      width: 70px;
+      height: 20px;
+      line-height: 20px;
+      border: 1px solid #D5D9D9;
+      border-radius: 7px;
+      box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+      background: #F0F2F2;
+      padding: 0 5px;
+      cursor: pointer;
+      margin: 10px 0;
+      font-size: 12px;
+      text-align: center;
+
+      .qtyHide {
+          display: none;
+          cursor: pointer;
+      }
+      .qtyShow {
+          display: block;
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          cursor: pointer;
+          background-color: white;
+          width: 70px;
+          height: 100%;
+          text-align: start;
+
+          div {
+              background-color: white;
+          }
+
+      }
+  } */
 }
 .productCont .prodContainer .rightCol .inRightCol .inStock {
   color: #007600;
@@ -666,39 +728,6 @@
 }
 .productCont .prodContainer .rightCol .inRightCol .outOfStock {
   color: red;
-}
-.productCont .prodContainer .rightCol .inRightCol .qtyCont {
-  position: relative;
-  width: 70px;
-  height: 20px;
-  line-height: 20px;
-  border: 1px solid #D5D9D9;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
-  background: #F0F2F2;
-  padding: 0 5px;
-  cursor: pointer;
-  margin: 10px 0;
-  font-size: 12px;
-  text-align: center;
-}
-.productCont .prodContainer .rightCol .inRightCol .qtyCont .qtyHide {
-  display: none;
-  cursor: pointer;
-}
-.productCont .prodContainer .rightCol .inRightCol .qtyCont .qtyShow {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  cursor: pointer;
-  background-color: white;
-  width: 70px;
-  height: 100%;
-  text-align: start;
-}
-.productCont .prodContainer .rightCol .inRightCol .qtyCont .qtyShow div {
-  background-color: white;
 }
 .productCont .prodContainer .rightCol .inRightCol .addCartButton {
   width: 100%;
@@ -711,6 +740,21 @@
   color: #0F1111;
   font-size: 14px;
 }
+.productCont .prodContainer .rightCol .inRightCol .buttonInStock {
+  width: 100%;
+  height: 30px;
+  cursor: not-allowed;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 19px;
+  color: #0F1111;
+  font-size: 14px;
+  background-color: #9b9999;
+  margin: 10px 0;
+}
+.productCont .prodContainer .rightCol .inRightCol .buttonInStock:hover {
+  background-color: #b3b0b0;
+}
 .productCont .prodContainer .rightCol .inRightCol .addCartButton:hover {
   background-color: #f8d214;
 }
@@ -719,7 +763,7 @@
 .cartPage {
   background-color: #EAEDED;
   padding: 14px 18px;
-  min-height: 100px;
+  min-height: 50vh;
   display: flex;
   gap: 20px;
 }
@@ -769,6 +813,9 @@
   display: flex;
 }
 .cartPage .cartProductsCont .cardsCont .cardCont .priceCont {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
   min-width: 120px;
   text-align: end;
 }
@@ -1150,6 +1197,29 @@
   font-style: normal !important;
   text-transform: none !important;
   text-decoration: none !important;
+}
+.categoryPage .noResultCont {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1000px;
+  height: 50vh;
+}
+.categoryPage .noResultCont .cont1 {
+  margin: 30px 0;
+  color: #0F1111;
+}
+.categoryPage .noResultCont .cont1 .noResult1 {
+  font-size: 18px;
+  line-height: 24px;
+}
+.categoryPage .noResultCont .cont1 .noResult2 {
+  font-size: 14px;
+  line-height: 20px;
+}
+.categoryPage .noResultCont .help {
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1.4;
 }
 
 .profilePage {

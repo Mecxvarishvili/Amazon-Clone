@@ -27,22 +27,32 @@ const SearchPage = () => {
     return (
         <Loader isLoading={isLoading} >
             <div className="categoryPage" >
-                {category && <div className="titleCont" >
-                    <div>{category.replace("&", " & ").replace("-", " ")}</div>
-                </div>}
-                <div className="cardsCont" >
-                    <div className="resultBox" >{data.length} results for 
-                    {search ?<span className="search" >{search}</span>:
-                    <span className="category">{category.replace("&", " & ").replace("-", " ")}</span>}
+                {data.length ?
+                <>
+                    {category && <div className="titleCont" >
+                        <div>{category.replace("&", " & ").replace("-", " ")}</div>
+                    </div>}
+                    <div className="cardsCont" >
+                        <div className="resultBox" >{data.length} results for
+                        {search ?<span className="search" > {search}</span>:
+                        <span className="category"> {category.replace("&", " & ").replace("-", " ")}</span>}
+                        </div>
+                        <div className="cardCont">
+                            {data.map(data => (
+                                <ProductCard key={data.id} data={data}/>
+                            ))}
+                        </div>
                     </div>
-                    <div className="cardCont">
-                        {data.length ? data.map(data => (
-                            <ProductCard key={data.id} data={data}/>
-                        )):
-                        <div>product not found</div>
-                        }
+                </>
+                : <div className="noResultCont">
+                    <div className="cont1" >
+                        <div className="noResult1">No result for {search}</div>
+                        <div className="noResult2">Try checking your spelling or use more general terms</div>
                     </div>
+                    <div className="help" >Need help?</div>
                 </div>
+                }
+                
             </div>
         </Loader>
     );

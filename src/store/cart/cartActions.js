@@ -9,10 +9,10 @@ export const setCartProduct = (data, qty) => {
     }
 }
 
-export const setQtyFromCart = (data, qty) => {
+export const setQtyFromCart = (id, qty) => {
     return {
         type: SET_QTY_FROM_CART,
-        payload: {data, qty}
+        payload: {id, qty}
     }
 }
 

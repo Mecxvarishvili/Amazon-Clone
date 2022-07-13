@@ -4,6 +4,7 @@ import { PRODUCT_PAGE } from '../routes';
 import ProductQuantity from '../../componenets/ProductQuantity';
 import { useDispatch } from 'react-redux';
 import { deleteCartProduct } from '../../store/cart/cartActions';
+import StarRating from '../../componenets/StarRating';
 
 const CartCard = (props) => {
     const { data } = props
@@ -29,8 +30,9 @@ const CartCard = (props) => {
                         <ProductQuantity qty={data.qty} data={data} />
                         <div onClick={() => {
                             dispatch(deleteCartProduct(data.id))
-                        }} >delete</div>
+                        }} > delete</div>
                     </div>
+                    <StarRating star={data.star} />
                 </div>
             </div>
             <div className='priceCont' >${data.price}</div>

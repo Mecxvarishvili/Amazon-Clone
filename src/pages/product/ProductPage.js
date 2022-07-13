@@ -70,11 +70,11 @@ const ProductPage = () => {
                         <div>${productData.price}</div>
                         <div>deliver to ...</div>
                         {productData.inStock ? <div className="inStock" >in stock</div> : <div className="outOfStock" >out of Stock</div>} 
-                        <ProductQuantity data={productData}  qty={qty} setQty={setQty} />
+                        {productData.inStock && <ProductQuantity data={productData}  qty={qty} setQty={setQty} />}
                         <button onClick={() => {
                             /* Api.UpdateUser(userId, {_id: productData.id, qty: qty}) */
-                            dispatch(setCartProduct(productData, qty))
-                        }} className="addCartButton" >add To cart</button>
+                            if(productData.inStock) dispatch(setCartProduct(productData, qty))
+                        }} className={productData.inStock ? "addCartButton" : "buttonInStock"} >add To cart</button>
                     </div>
                 </div>
             </div>

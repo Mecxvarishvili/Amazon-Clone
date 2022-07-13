@@ -64,6 +64,37 @@
     }
 }
 
+//Product Quanitity
+
+.qtyCont {
+
+  .qtySelect {
+
+  }
+
+  .qtyInput {
+    font-size: 13px;
+    line-height: 19px;
+    height: 25px;
+    width: 63px;
+    padding: 3px 7px;
+    border: 1px solid #888C8C;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgb(15 17 17 / 15%) inset;
+    outline: 0;
+    -webkit-appearance: none;
+  }
+
+  .qtyButton {
+    font-size: 11px;
+    height: 20px;
+    width: 50x;
+    background-color: #FFD814;
+    border: 1px solid #FCD200;
+    border-radius: 8px;
+  }
+}
+
 // error page
 .errorPage {
 
@@ -142,4 +173,14 @@
   height: 1px;
   background-color: #E7E7E7;
   margin: 10px 0;
+}
+
+//input type number remove arrows
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }

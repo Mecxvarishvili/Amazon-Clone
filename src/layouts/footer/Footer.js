@@ -60,7 +60,6 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="line" ></div>
             </div>
         </div>
     );
