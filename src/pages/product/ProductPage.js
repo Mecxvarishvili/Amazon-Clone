@@ -5,10 +5,11 @@ import Api from '../../componenets/api';
 import ProductAttributes from './ProductAttributes';
 import { setCartProduct } from '../../store/cart/cartActions';
 import ProductQuantity from '../../componenets/ProductQuantity';
-import { getUserId } from '../../store/selector';
+import { getUserAuthentication, getUserId } from '../../store/selector';
 import Loader from '../../componenets/Loader';
 import StarRating from '../../componenets/StarRating';
 import ProductSpecs from '../../componenets/ProductSpecs';
+import { SIGN_IN_PAGE } from '../routes';
 
 const ProductPage = () => {
     const [ productData, setData ] = useState(false)
@@ -18,7 +19,7 @@ const ProductPage = () => {
 
     const dispatch = useDispatch()
     const {id} = useParams()
-    const userId = useSelector(getUserId)
+    const isLoggedIn = useSelector(getUserAuthentication)
 
     useEffect(() => {
         Api.fetchSingleProduct(id)
@@ -60,20 +61,18 @@ const ProductPage = () => {
                         })}
                     </div>
                     <div className="line"></div>
-                    <div>
-                        <div>About this item</div>
-                        <div dangerouslySetInnerHTML={{__html: productData.description}}></div>
+                    <div className="description">
+                        <div className="about" >About this item</div>
+                        <div className="" dangerouslySetInnerHTML={{__html: productData.description}}></div>
                     </div>
                 </div>
                 <div className="rightCol" >
                     <div className="inRightCol">
-                        <div>${productData.price}</div>
-                        <div>deliver to ...</div>
-                        {productData.inStock ? <div className="inStock" >in stock</div> : <div className="outOfStock" >out of Stock</div>} 
+                        <div className="price" ><sup>$</sup>{productData.price}</div>
+                        {productData.inStock ? <div className="inStock" >in stock</div> : <div className="outOfStock" >Out of Stock</div>} 
                         {productData.inStock && <ProductQuantity data={productData}  qty={qty} setQty={setQty} />}
                         <button onClick={() => {
-                            /* Api.UpdateUser(userId, {_id: productData.id, qty: qty}) */
-                            if(productData.inStock) dispatch(setCartProduct(productData, qty))
+                            productData.inStock && isLoggedIn ? dispatch(setCartProduct(productData, qty)) : window.location.replace(SIGN_IN_PAGE)
                         }} className={productData.inStock ? "addCartButton" : "buttonInStock"} >add To cart</button>
                     </div>
                 </div>

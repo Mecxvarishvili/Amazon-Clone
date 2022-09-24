@@ -1,6 +1,4 @@
-import { DELETE_CART_PRODUCT, SET_CART_PRODUCT, SET_CART_PRODUCT_QTY, SET_QTY_FROM_CART, SET_USER_CART } from "./cartActionConst"
-import Api from "../../componenets/api"
-
+import { SET_CART_PRODUCT, SET_QTY_FROM_CART, SET_USER_CART } from "./cartActionConst"
 
 export const setCartProduct = (data, qty) => {
     return {
@@ -13,13 +11,6 @@ export const setQtyFromCart = (id, qty) => {
     return {
         type: SET_QTY_FROM_CART,
         payload: {id, qty}
-    }
-}
-
-export const deleteCartProduct = (id) => {
-    return {
-        type: DELETE_CART_PRODUCT,
-        payload: id
     }
 }
 

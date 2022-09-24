@@ -17,7 +17,7 @@
         margin: auto;
 
         .inFormCont {
-            width: 312px;
+            max-width: 312px;
             margin: auto;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -156,12 +156,67 @@
                 text-decoration: none;
                 .createAccBtn {
                     color: #111;
-                    width: 350px!important;
+                    max-width: 350px!important;
                     height: 30px!important;
                     line-height: 30px;
                     font-size: 13px;
                 }
 
+            }
+        }
+        .errorCont {
+
+            .errorBox {
+                border-radius: 4px;
+                border: 1px #8b6e00 solid;
+                box-shadow: 0 0 0 4px #fffae7 inset;
+                padding: 10px 30px;
+                margin-bottom: 20px;
+
+                .errTitle {
+                    color: #8b6e00;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+
+                .errDescribe {
+                    font-size: 13px;
+                    color: #111;
+                    line-height: 19px;
+                    
+                    .errEmail {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .linkCont {
+                .linkBox {
+                    margin: 25px 0;
+
+                }
+
+                .linkTitle {
+                    font-size: 18px;
+                    color: #111;
+                    margin-bottom: 7px;
+                }
+
+                .link-normal {
+                    font-size: 13px;
+                }
+
+                .link {
+                    color: #0066c0;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                }
+
+                .link:hover {
+                    color: #CF6A18;
+                    text-decoration: underline;
+                }
             }
         }
 

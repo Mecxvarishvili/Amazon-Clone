@@ -6,10 +6,8 @@ const ProductQuantity = (props) => {
     const { data, qty } = props
     const [ nQty, setQty ] = useState(qty)
     const [ input, setInput] = useState(qty)
+    const [ qtyType, setQtyType ] = useState(qty)
     const dispatch = useDispatch()
-
-
-    const localQty = new Array( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
     useEffect(() => {
         if(!props.setQty && nQty !==10 ) {
@@ -21,13 +19,18 @@ const ProductQuantity = (props) => {
         if(props.setQty) {
             props.setQty(parseInt(e.target.value))
         } else {
-            setQty(parseInt(e.target.value))
+            if(e.target.value == "i") {
+                setQtyType(true)
+                setInput(nQty)
+            } else {
+                setQty(parseInt(e.target.value))
+            }
         }
     }
 
     return (
         <div className="qtyCont" >
-            {parseInt(nQty) < 10 ?
+            {parseInt(qtyType) < 10 ?
             <select className="qtySelect" defaultValue={nQty} onChange={(e) => {setAction(e)}} >
                 {!props.setQty && <option value="0" >0 (delete)</option>}
                 <option value="1" >1</option>
@@ -39,12 +42,12 @@ const ProductQuantity = (props) => {
                 <option value="7" >7</option>
                 <option value="8" >8</option>
                 <option value="9" >9</option>
-                {!props.setQty && <option value="onrpInput" >10 +</option>}
+                {!props.setQty && <option value="i" >10 +</option>}
             </select>
             :
             <>
-                <input className="qtyInput" type="number" defaultValue={nQty}  onChange={(e) => setInput(parseInt(e.target.value))}/>
-                {nQty !== input &&  <button className="qtyButton" onClick={() => {setQty(input)}}>Update</button>}
+                <input className="qtyInput" type="number" defaultValue={input} onChange={(e) => {if(e.target.value === ""){setInput(0)}else{setInput(parseInt(e.target.value))}}}/>
+                {qtyType !== input &&  <button type="submit" className="qtyButton" onClick={() => {setQty(input); setQtyType(input)}}>Update</button>}
             </>
             }
         </div>

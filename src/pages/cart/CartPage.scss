@@ -31,6 +31,7 @@
                 .mainCont {
                     flex-grow: 1;
                     display: flex;
+                    gap: 10px;
 
                     .imgCont {
 
@@ -50,17 +51,33 @@
                             .title {
                                 color: #0F1111;
                                 font-size: 18px;
+                                margin-bottom: 5px; 
                             }
                         }
 
                         .inStock {
                             color: #007600;
                             font-size: 13px;
+                            line-height: 20px;
                         }
 
                         .detailCont {
                             display: flex;
+                            align-items: center;
+                            gap: 15px;
+                            margin: 7px 0;
 
+                            .deleteButton {
+                                color: #007185;
+                                cursor: pointer;
+                                font-size: 13px;
+
+                            }
+
+                        }
+                        
+                        .starCont {
+                            margin: 5px 0;
                         }
                     }
                 }

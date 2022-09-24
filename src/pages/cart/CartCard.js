@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { PRODUCT_PAGE } from '../routes';
 import ProductQuantity from '../../componenets/ProductQuantity';
 import { useDispatch } from 'react-redux';
-import { deleteCartProduct } from '../../store/cart/cartActions';
+import { setQtyFromCart } from '../../store/cart/cartActions';
 import StarRating from '../../componenets/StarRating';
 
 const CartCard = (props) => {
@@ -24,13 +24,13 @@ const CartCard = (props) => {
                             <div className="title" >{data.name}</div>
                         </Link>
                         <div className='inStock' >In Stock</div>
-                        <div>{data.brand}</div>
+                        <div>Brand: {data.brand}</div>
                     </div>
                     <div className="detailCont" >
                         <ProductQuantity qty={data.qty} data={data} />
-                        <div onClick={() => {
-                            dispatch(deleteCartProduct(data.id))
-                        }} > delete</div>
+                        <div className="deleteButton" onClick={() => {
+                            dispatch(setQtyFromCart(data.id, 0))
+                        }} >Delete</div>
                     </div>
                     <StarRating star={data.star} />
                 </div>

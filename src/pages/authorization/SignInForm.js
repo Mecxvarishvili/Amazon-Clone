@@ -9,7 +9,7 @@ import { setUserAuthentication, setUser } from '../../store/user/userAction';
 
 const SignInForm = () => {
     const [ Token, setToken ] = useState("")
-    const [ error, setError ] = useState("")
+    const [ error, setError ] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -40,12 +40,14 @@ const SignInForm = () => {
                         .min(6, " Minimum 6 characters required")
                         .required("Minimum 6 characters required"),
                 })}
-                onSubmit={(values, {setSubmitting}) => {
+                onSubmit={(values, {resetForm}) => {
                         Api.fetchUserLogin(values)
                             .then(res => res.json())
                             .then(res => {
                                 if(res.error) {
                                     setError(res.error)
+                                    resetForm({values: ''})
+
                                 } else {
                                     localStorage.setItem("Token", res.accesToken)
                                     setToken(res.accesToken)

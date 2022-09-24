@@ -13,6 +13,7 @@ import SearchBar from './SearchBar';
 const Header = () => {
     const {isLoggedIn, user} = useSelector(getUserReducer)
     const cartData = useSelector(getCartData)
+    const totalProduct = serialize.totalProducts(cartData)
     if(user.name) {var userName = user.name.split(" ")[0]}
     return (
         <div className='navBar' >
@@ -34,14 +35,13 @@ const Header = () => {
                 </div>
                 <SearchBar/>
                 <div className='navRight' >
-                    <Link to="/" className="languageCont outline-hov" >Language</Link>
                     <Link to={PROFILE_PAGE} className="signInCont outline-hov">
                         <div className="sgnT" >Hello, {user.name ? userName : "Sign in"}</div>
-                        <div className="sgnB" >Account & Lists</div>
+                        <div className="sgnB" >Account & Lists</div>                                        
                     </Link>
                     <Link to={CART_PAGE} className="cartCounterCont outline-hov" >
                         <div className='cartCont'>
-                            <div className='cartCount'>{serialize.totalProducts(cartData)}</div>
+                            {totalProduct > 99 ? <div className='cartCount2'>99+</div> : <div className='cartCount1'>{totalProduct}</div>}
                             <div >
                                 <img src={cartImg} />
                             </div>
@@ -60,7 +60,6 @@ const Header = () => {
                     <div>Sell</div>
                 </div>
             </div>
-            
         </div>
     );
 };

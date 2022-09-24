@@ -1,5 +1,6 @@
 .productCont {
     max-width: 1500px;
+    min-height: 50vh;
     margin: 0 auto;
     margin-top: 30px;
     
@@ -69,6 +70,10 @@
                 margin: 10px 0;
             }
 
+            .starCont {
+                margin: 5px 0;
+            }
+
             .priceCont {
                 margin: 10px 0;
                 .price1 {
@@ -103,6 +108,21 @@
                 }
             }
 
+            .description {
+
+                .about {
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 700;
+                }
+
+                ul {
+                    padding-inline-start: 20px;
+                    color: #0F1111;
+                }
+
+            }
+
         }
         
         .rightCol {
@@ -113,6 +133,15 @@
 
             .inRightCol {
                 padding: 14px 18px;
+                min-width: 200px;
+
+                .price {
+                    font-size: 28px;
+                    sup {
+                        font-size: 15px;
+                    }
+
+                }
 
                 .inStock {
                     color: #007600;
@@ -123,48 +152,15 @@
                 }
                 
                 .outOfStock {
-                    color: red;
+                    color: #c42d07;
+                    font-size: 18px;
+                    line-height: 24px;
+                    margin: 10px 0;
                 }
 
-                //qty
-
-                /* .qtyCont {
-                    position: relative;
-                    width: 70px;
-                    height: 20px;
-                    line-height: 20px;
-                    border: 1px solid #D5D9D9;
-                    border-radius: 7px;
-                    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
-                    background: #F0F2F2;
-                    padding: 0 5px;
-                    cursor: pointer;
+                .qtyCont {
                     margin: 10px 0;
-                    font-size: 12px;
-                    text-align: center;
-
-                    .qtyHide {
-                        display: none;
-                        cursor: pointer;
-                    }
-                    .qtyShow {
-                        display: block;
-                        position: absolute;
-                        z-index: 2;
-                        top: 0;
-                        cursor: pointer;
-                        background-color: white;
-                        width: 70px;
-                        height: 100%;
-                        text-align: start;
-
-                        div {
-                            background-color: white;
-                        }
-                        
-                    }
-                } */
-
+                }
 
                 //end
 
@@ -178,6 +174,7 @@
                     border-radius: 19px;
                     color: #0F1111;
                     font-size: 14px;
+                    margin: 10px 0;
 
                 }
 

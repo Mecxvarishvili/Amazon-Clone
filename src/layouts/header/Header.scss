@@ -4,7 +4,7 @@
     color: white;
     
     .navTop {
-        height: 60px;
+        min-height: 60px;
         background-color: #131921;
         display: flex;
         align-items: center;
@@ -69,7 +69,6 @@
                 width: 100%;
                 height: 100%;
                 display: flex;
-                flex-wrap: wrap;
 
                 select {
                     margin: 0;
@@ -81,7 +80,7 @@
                     height: 100%;
                     outline: none;
                     color: #5F6869;
-                    font-size: 14px;
+                    font-size: 13px;
                 }
     
                 input {
@@ -93,6 +92,7 @@
                     outline: none;
                     font-size: 18px;
                     padding: 0 10px;
+                    min-width: 50px;
                 }
     
                 .searchBtn {
@@ -127,11 +127,6 @@
         .navRight {
             display: flex;
             align-items: center;
-
-            .languageCont {
-                line-height: 50px;
-                padding: 0 10px
-            }
             
             .signInCont {
                 height: 50px;
@@ -168,11 +163,22 @@
                     display: flex;
                     position: relative;
 
-                    .cartCount {
+                    .cartCount1 {
                         position: absolute;
                         left: 12px;
                         top: -5px;
                         font-size: 17px;
+                        font-weight: 700;
+                        color: #f08804;
+                        width: 20px;
+                        text-align: center;
+
+                    }
+                    .cartCount2 {
+                        position: absolute;
+                        left: 12px;
+                        top: -4px;
+                        font-size: 13px;
                         font-weight: 700;
                         color: #f08804;
                         width: 20px;
@@ -205,7 +211,7 @@
 
     .navBottom {
         background-color: #232F3E;
-        display: flex;
+        display: none;
         height: 40px;
 
         .navLeft {
@@ -248,3 +254,5 @@
         border-radius: 1px;
     }
 }
+
+//1024

@@ -15,9 +15,7 @@ const SignUpForm = () => {
 
     return (
         error ?
-        <div>
-            <AuthorizationError error={error} setError={setError}/>
-        </div>
+        <AuthorizationError error={error} setError={setError}/>
         :
         <div className='inFormCont' >
             <div className='formTitle' >Create Account</div>
