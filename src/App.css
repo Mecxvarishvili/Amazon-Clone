@@ -83,24 +83,6 @@
   padding: 0 10px;
   min-width: 50px;
 }
-.navBar .navTop .navCenter form .searchBtn {
-  height: 100%;
-  background-color: #febd69;
-  background-image: none;
-  border: none;
-  width: 45px;
-  height: 40px;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  cursor: pointer;
-}
-.navBar .navTop .navCenter form .searchBtn img {
-  width: 40px;
-  height: 40px;
-  transform: rotate(270deg);
-  object-fit: cover;
-}
 .navBar .navTop .navCenter:focus-within {
   outline: 3px solid #FF9900;
   border-radius: 4px;
@@ -116,14 +98,14 @@
   flex-direction: column;
   justify-content: center;
 }
-.navBar .navTop .navRight .signInCont .sgnT {
+.navBar .navTop .navRight .signInCont .userCont1 .sgnT {
   font-size: 12px;
   line-height: 14px;
   height: 14px;
   font-weight: 400;
   text-transform: capitalize;
 }
-.navBar .navTop .navRight .signInCont .sgnB {
+.navBar .navTop .navRight .signInCont .userCont1 .sgnB {
   font-size: 14px;
   line-height: 15px;
   font-weight: 700;
@@ -170,37 +152,6 @@
 .navBar .navTop .navRight a {
   text-decoration: none;
   color: white;
-}
-.navBar .navBottom {
-  background-color: #232F3E;
-  display: none;
-  height: 40px;
-}
-.navBar .navBottom .navLeft {
-  margin: 5px 0 6px 10px;
-  padding: 8px 9px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.navBar .navBottom .nav-left:hover {
-  outline: 1px solid white;
-  border-radius: 1px;
-  cursor: pointer;
-}
-.navBar .navBottom .navRight {
-  display: flex;
-  font-size: 14px;
-  font-weight: 600;
-  margin-left: 10px;
-}
-.navBar .navBottom .navRight div {
-  margin: 5px 0 6px 0;
-  padding: 8px 9px;
-}
-.navBar .navBottom .navRight div:hover {
-  outline: 1px solid white;
-  border-radius: 1px;
-  cursor: pointer;
 }
 .navBar .outline-hov:hover {
   outline: 1px solid white;
@@ -491,11 +442,6 @@ input[type=number] {
 .menuCont .bannerCont .slick-list .imgBox {
   height: 600px;
   width: 100%;
-}
-.menuCont .bannerCont .slick-list .imgBox img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .menuCont .categoryLayout .cardsLayout {
   display: grid;
@@ -1297,7 +1243,6 @@ input[type=number] {
 }
 
 .profilePage {
-  width: 52%;
   margin: 0 auto;
 }
 .profilePage .profileTitle {
@@ -1392,28 +1337,150 @@ body {
   background-color: #f8d214;
 }
 
+@media only screen and (max-width: 12000px) {
+  .navBar .navTop .navCenter .searchBtn {
+    height: 100%;
+    background-color: #febd69;
+    background-image: none;
+    border: none;
+    width: 45px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+  }
+  .navBar .navTop .navCenter .searchBtn img {
+    width: 40px;
+    height: 40px;
+    transform: rotate(270deg);
+    object-fit: cover;
+  }
+  .navBar .navTop .navRight .userCont1 {
+    display: block;
+  }
+  .navBar .navTop .navRight .userCont2 {
+    display: none;
+  }
+  .navBar .navBottom {
+    display: none;
+  }
+
+  .menuCont .bannerCont .imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profilePage {
+    width: 55%;
+  }
+}
 @media only screen and (max-width: 1099px) {
+  .navBar .navTop {
+    min-height: 50px;
+  }
+  .navBar .navTop .navLeft {
+    height: 35px;
+  }
+  .navBar .navTop .navLeft .logo {
+    height: 38px;
+    width: 90px;
+  }
+  .navBar .navTop .navLeft .logo img {
+    margin-top: 5px;
+  }
   .navBar .navTop .navLeft .deliverCont {
     display: none;
+  }
+  .navBar .navTop .navCenter {
+    height: 35px;
+  }
+  .navBar .navTop .navCenter .searchBtn img {
+    width: 35px;
+    height: 35px;
+  }
+  .navBar .navTop .navRight .signInCont {
+    height: 38px;
+    padding: 0 5px;
+  }
+  .navBar .navTop .navRight .cartCounterCont {
+    height: 38px;
+    padding: 0 5px;
+  }
+  .navBar .navTop .navRight .userCont1 {
+    display: none;
+  }
+  .navBar .navTop .navRight .userCont2 {
+    display: flex;
+    align-items: center;
+  }
+  .navBar .navTop .navRight .userCont2 span {
+    margin-right: 10px;
+  }
+  .navBar .navTop .navRight .userCont2 .userImg {
+    width: 27px;
   }
   .navBar .navTop .navRight .cartText {
     display: none;
   }
+
+  .menuCont .bannerCont {
+    height: 160px;
+  }
+  .menuCont .bannerCont .imgBox img {
+    height: 70%;
+  }
+
+  .profilePage {
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 800px) {
   .navBar .navTop {
+    background-color: #232F3E;
     display: grid;
+    grid-gap: 5px;
     justify-content: space-between;
     grid-template-columns: auto;
     grid-template-rows: auto;
+    padding-top: 5px;
   }
   .navBar .navTop .navCenter {
     grid-row-start: 2;
     grid-column-start: 1;
     grid-column-end: 4;
   }
+  .navBar .navTop .navCenter #category {
+    display: none;
+  }
   .navBar .navTop .navRight {
     grid-column-end: 4;
+  }
+  .navBar .navBottom {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px;
+    white-space: nowrap;
+    background-color: #232F3E;
+  }
+  .navBar .navBottom a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .navBar .navBottom::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .menuCont .bannerCont {
+    display: none;
+  }
+
+  .profilePage {
+    width: 90%;
   }
 }
 

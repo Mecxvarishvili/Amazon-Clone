@@ -48,7 +48,9 @@ const SearchBar = () => {
     useEffect(() => {
         querySet("search", setSearchValue)
         querySet("category", setCategoryValue)
-    }, [location.pathname])
+    }, [location.search])
+
+    console.log(location)
 
     return (
         <div className='navCenter' >

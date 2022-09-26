@@ -22,7 +22,7 @@ const SearchPage = () => {
                 setData(res)
                 setIsLoading(false)
         })
-    }, [])
+    }, [location.search])
 
     return (
         <Loader isLoading={isLoading} >

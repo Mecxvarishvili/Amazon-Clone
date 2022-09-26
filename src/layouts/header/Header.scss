@@ -94,26 +94,6 @@
                     padding: 0 10px;
                     min-width: 50px;
                 }
-    
-                .searchBtn {
-                    height: 100%;
-                    background-color: #febd69;
-                    background-image: none;
-                    border: none;
-                    width: 45px;
-                    height: 40px;
-                    padding: 0;
-                    margin: 0;
-                    outline: none;
-                    cursor: pointer;
-    
-                    img {
-                        width: 40px;
-                        height: 40px;
-                        transform: rotate(270deg);
-                        object-fit: cover;
-                    }
-                }
             }
 
         }
@@ -135,19 +115,21 @@
                 flex-direction: column;
                 justify-content: center;
 
+                .userCont1 {
+                    .sgnT {
+                        font-size: 12px;
+                        line-height: 14px;
+                        height: 14px;
+                        font-weight: 400;
+                        text-transform: capitalize;
+                    }
+    
+                    .sgnB {
+                        font-size: 14px;
+                        line-height: 15px;
+                        font-weight: 700;
+                    }
 
-                .sgnT {
-                    font-size: 12px;
-                    line-height: 14px;
-                    height: 14px;
-                    font-weight: 400;
-                    text-transform: capitalize;
-                }
-
-                .sgnB {
-                    font-size: 14px;
-                    line-height: 15px;
-                    font-weight: 700;
                 }
             }
 
@@ -207,46 +189,6 @@
             }
 
         }
-    }
-
-    .navBottom {
-        background-color: #232F3E;
-        display: none;
-        height: 40px;
-
-        .navLeft {
-            margin: 5px 0 6px 10px;
-            padding: 8px 9px;
-            font-size: 14px;
-            font-weight: 600;
-
-        }
-
-        .nav-left:hover {
-            outline: 1px solid white;
-            border-radius: 1px;
-            cursor:pointer;
-        }
-        
-
-        .navRight {
-            display: flex;
-            font-size: 14px;
-            font-weight: 600;
-            margin-left: 10px;
-
-            div {
-                margin: 5px 0 6px 0;
-                padding: 8px 9px;
-            }
-
-            div:hover {
-                outline: 1px solid white;
-                border-radius: 1px;
-                cursor:pointer;
-            }
-        }
-
     }
 
     .outline-hov:hover {

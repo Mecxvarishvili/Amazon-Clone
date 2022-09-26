@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from "../../img/white-logo.png"
 import cartImg from "../../img/whiteCart.png"
-import { CART_PAGE, HOME_PAGE, PROFILE_PAGE, SIGN_IN_PAGE } from '../../pages/routes';
+import userImg from"../../img/userImg.png"
+import { CART_PAGE, HOME_PAGE, PROFILE_PAGE, SEARCH_PAGE } from '../../pages/routes';
 import serialize from "../../serialize/serializer"
 import { getCartData, getUserReducer } from '../../store/selector';
 import SearchBar from './SearchBar';
@@ -14,6 +15,16 @@ const Header = () => {
     const {isLoggedIn, user} = useSelector(getUserReducer)
     const cartData = useSelector(getCartData)
     const totalProduct = serialize.totalProducts(cartData)
+    const category = [
+        {id: "baby", title: "Baby"},
+        {id: "beauty%26personal-care", title: "Beauty & Personal Care"},
+        {id: "computers", title: "Computers & Accesories"},
+        {id: "dresses", title: "Dresses"},
+        {id: "electronics", title: "Electronics"},
+        {id: "health%26household", title: "Health & Household"},
+        {id: "toys%26games", title: "Toys & Games"},
+        {id: "video-games", title: "Video Games"},
+    ]
     if(user.name) {var userName = user.name.split(" ")[0]}
     return (
         <div className='navBar' >
@@ -36,8 +47,14 @@ const Header = () => {
                 <SearchBar/>
                 <div className='navRight' >
                     <Link to={PROFILE_PAGE} className="signInCont outline-hov">
-                        <div className="sgnT" >Hello, {user.name ? userName : "Sign in"}</div>
-                        <div className="sgnB" >Account & Lists</div>                                        
+                        <div className="userCont1" >
+                            <div className="sgnT" >Hello, {user.name ? userName : "Sign in"}</div>
+                            <div className="sgnB" >Account & Lists</div>
+                        </div>
+                        <div className="userCont2" >
+                            {isLoggedIn ? <span>{userName} &#x203A;</span> : <span>Sign in &#x203A;</span>}
+                            <img className="userImg" src={userImg} />
+                        </div>      
                     </Link>
                     <Link to={CART_PAGE} className="cartCounterCont outline-hov" >
                         <div className='cartCont'>
@@ -51,14 +68,9 @@ const Header = () => {
                 </div>
             </div>
             <div className="navBottom" >
-                <div className="navRight" >
-                    <div className="navLeft" >All</div>
-                    <div>Today's Deals</div>
-                    <div>Customer Service</div>
-                    <div>Registry</div>
-                    <div>Gift Cards</div>
-                    <div>Sell</div>
-                </div>
+                {category.map((data) => (
+                    <Link to={SEARCH_PAGE+`?category=${data.id}`} key={data.id}>{data.title}</Link>
+                ))}
             </div>
         </div>
     );

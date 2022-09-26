@@ -43,13 +43,60 @@ body {
             }
 
             .navCenter {
+                
+    
+                .searchBtn {
+                    height: 100%;
+                    background-color: #febd69;
+                    background-image: none;
+                    border: none;
+                    width: 45px;
+                    height: 40px;
+                    padding: 0;
+                    margin: 0;
+                    outline: none;
+                    cursor: pointer;
+    
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        transform: rotate(270deg);
+                        object-fit: cover;
+                    }
+                }
 
             }
 
             .navRight {
 
+                .userCont1 {
+                    display: block;
+                }
+
+                .userCont2 {
+                    display: none
+                }
+
             }
         }
+        .navBottom {
+            display: none;
+        }
+    }
+
+    .menuCont {
+        .bannerCont {
+            .imgBox {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .profilePage {
+        width: 55%;
     }
 
 }
@@ -58,7 +105,19 @@ body {
     //header
     .navBar {
         .navTop {
+            min-height: 50px;
             .navLeft {
+
+                .logo {
+                    height: 38px;
+                    width: 90px;
+
+                    img {
+                        margin-top: 5px;
+                    }
+                
+                }
+                height: 35px;
                 .deliverCont {
                     display: none;
                 }
@@ -66,10 +125,45 @@ body {
             }
 
             .navCenter {
+                height: 35px;
+
+                .searchBtn {
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
 
             }
 
             .navRight {
+                .signInCont {
+                    height: 38px;
+                    padding: 0 5px
+                }
+
+                .cartCounterCont {
+                    height: 38px;
+                    padding: 0 5px;
+                }
+                
+
+                .userCont1 {
+                    display: none
+                }
+
+                .userCont2 {
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        margin-right: 10px;
+                    }
+
+                    .userImg {
+                        width: 27px;
+                    }
+                }
 
                 .cartText{
                     display: none;
@@ -78,6 +172,22 @@ body {
             }
         }
     }
+
+    .menuCont {
+        .bannerCont {
+            height: 160px;
+
+            .imgBox {
+
+                img {
+                    height: 70%;
+                }
+            }
+        }
+    }
+    .profilePage {
+        width: 70%;
+    }
     
 }
 
@@ -85,10 +195,13 @@ body {
     //header
     .navBar {
         .navTop {
+            background-color: #232F3E;
             display: grid;
+            grid-gap: 5px;
             justify-content: space-between;
             grid-template-columns: auto ;
             grid-template-rows: auto  ;
+            padding-top: 5px;
 
             .navLeft {
 
@@ -98,6 +211,10 @@ body {
                 grid-row-start: 2;
                 grid-column-start: 1;
                 grid-column-end: 4;
+                
+                #category {
+                    display: none;
+                }
 
             }
 
@@ -106,6 +223,35 @@ body {
                 
             }
         }
+        .navBottom {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px;
+            white-space: nowrap;
+            background-color:#232F3E;
+
+            a {
+                color: white;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+        }
+
+        .navBottom::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
     }
-    
+
+    .menuCont {
+        .bannerCont {
+            display: none;
+        }
+    }
+
+    .profilePage {
+        width: 90%;
+    }
 }
