@@ -254,4 +254,19 @@ body {
     .profilePage {
         width: 90%;
     }
+
+    .cartPage {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .cartProductsCont {
+            .cartTitle  .forPrice {
+                display: none;
+            }
+        }
+
+        .totalPriceCont {
+            width: 100%;
+        }
+    }
 }

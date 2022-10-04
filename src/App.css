@@ -575,7 +575,7 @@ input[type=number] {
   top: 4px;
   height: 100%;
   width: 50%;
-  padding-left: 40px;
+  padding-left: 50px;
 }
 .productCont .prodContainer .leftCol .images {
   width: 40px;
@@ -641,17 +641,22 @@ input[type=number] {
 .productCont .prodContainer .centerCol .attrCont .attrBox {
   display: flex;
   justify-content: space-between;
+  margin: 5px 0;
 }
 .productCont .prodContainer .centerCol .attrCont .attrBox .id {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   color: #0F1111;
   font-weight: 600;
+  width: 35%;
+  padding-right: 3px;
 }
 .productCont .prodContainer .centerCol .attrCont .attrBox .value {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
   color: #0F1111;
+  width: 60%;
+  padding-left: 3px;
 }
 .productCont .prodContainer .centerCol .description .about {
   font-size: 16px;
@@ -1481,6 +1486,17 @@ body {
 
   .profilePage {
     width: 90%;
+  }
+
+  .cartPage {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .cartPage .cartProductsCont .cartTitle .forPrice {
+    display: none;
+  }
+  .cartPage .totalPriceCont {
+    width: 100%;
   }
 }
 

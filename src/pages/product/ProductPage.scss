@@ -14,7 +14,7 @@
             top: 4px;
             height: 100%;
             width: 50.0%; 
-            padding-left: 40px;
+            padding-left: 50px;
 
             .images {
                 width: 40px;
@@ -92,18 +92,23 @@
                 .attrBox {
                     display: flex;
                     justify-content: space-between;
+                    margin: 5px 0;
 
                     .id {
                         font-size: 14px;
-                        line-height: 20px;
+                        line-height: 18px;
                         color: #0F1111;
                         font-weight: 600;
+                        width: 35%;
+                        padding-right: 3px;
                     }
 
                     .value {
                         font-size: 14px;
-                        line-height: 20px;
+                        line-height: 18px;
                         color: #0F1111;
+                        width: 60%;
+                        padding-left: 3px;
                     }
                 }
             }
