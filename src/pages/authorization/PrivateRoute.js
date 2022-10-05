@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Route, Navigate, Outlet } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 import { getUserAuthentication } from '../../store/selector';
 import { SIGN_IN_PAGE } from '../routes';
 

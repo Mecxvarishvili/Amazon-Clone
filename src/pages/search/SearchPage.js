@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
-import { useParams, useLocation, Navigate, } from 'react-router-dom';
+import { useLocation, } from 'react-router-dom';
 import Api from '../../componenets/api';
 import Loader from '../../componenets/Loader';
-import { HOME_PAGE } from '../routes';
 
 const SearchPage = () => {
 

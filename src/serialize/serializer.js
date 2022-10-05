@@ -15,7 +15,7 @@ const serialize = {
         var totalPrice = 0
         if(data.length) {
             for(var i in data) {
-                totalPrice += data[i].qty * parseInt(data[i].price)
+                totalPrice += data[i].qty * parseFloat(data[i].price)
             }
             return totalPrice
         } 

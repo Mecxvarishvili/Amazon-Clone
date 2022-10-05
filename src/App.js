@@ -66,7 +66,6 @@ function App() {
     }
   }, [cartData])
 
-
   return (
     <div>
       {loader && <Router>

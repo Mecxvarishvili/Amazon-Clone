@@ -32,15 +32,15 @@
                     flex-grow: 1;
                     display: flex;
                     gap: 10px;
+                    
 
-                    .imgCont {
+                    .deleteButton {
+                        color: #007185;
+                        cursor: pointer;
+                        font-size: 13px;
 
-                        img {
-                            width: 190px;
-                            height: 180px;
-                            object-fit: contain;
-                        }
                     }
+
 
                     .describeCont {
                         width: 100%;
@@ -59,21 +59,6 @@
                             color: #007600;
                             font-size: 13px;
                             line-height: 20px;
-                        }
-
-                        .detailCont {
-                            display: flex;
-                            align-items: center;
-                            gap: 15px;
-                            margin: 7px 0;
-
-                            .deleteButton {
-                                color: #007185;
-                                cursor: pointer;
-                                font-size: 13px;
-
-                            }
-
                         }
                         
                         .starCont {
@@ -195,7 +180,7 @@
             }
 
             button {
-                height: 30px;
+                height: 35px;
                 border: 0;
                 border-radius: 7px;
                 width: 100%;

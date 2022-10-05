@@ -6,14 +6,12 @@
     
     .prodContainer {
         display: flex;
-        gap: 20px;
 
         .leftCol {
             position: sticky;
             max-width: 600px;
             top: 4px;
             height: 100%;
-            width: 50.0%; 
             padding-left: 50px;
 
             .images {
@@ -57,7 +55,6 @@
         }
 
         .centerCol {
-            max-width: 400px;
 
             .productTitle {
                 font-size: 24px;
@@ -131,14 +128,12 @@
         }
         
         .rightCol {
-            width: 245px;
             height: 100%;
             border: 1px #D5D9D9 solid;
             border-radius: 8px;
 
             .inRightCol {
                 padding: 14px 18px;
-                min-width: 200px;
 
                 .price {
                     font-size: 28px;
@@ -166,8 +161,6 @@
                 .qtyCont {
                     margin: 10px 0;
                 }
-
-                //end
 
                 .addCartButton {
                     width: 100%;

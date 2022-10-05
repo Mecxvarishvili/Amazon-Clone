@@ -1,12 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SIGN_IN_PAGE } from '../routes';
 import * as Yup from 'yup'
 import Api from '../../componenets/api';
 import AuthorizationError from './AuthorizationError';
-import { HOME_PAGE } from '../routes';
-import { setUser, setUserAuthentication } from '../../store/user/userAction';
+import { setUser } from '../../store/user/userAction';
 import { useDispatch } from 'react-redux/es/exports';
 
 const SignUpForm = () => {

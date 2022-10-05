@@ -3,7 +3,6 @@
 @import "./layouts/footer/Footer.scss";
 @import "./pages/menu/Menu.scss";
 @import "./pages/product/ProductPage.scss";
-/* @import "./pages/category/CategoryPage.scss"; deprecated */
 @import "./pages/cart/CartPage.scss";
 @import "./pages/authorization/Authorization.scss";
 @import "./pages/search/SearchPage.scss";
@@ -35,7 +34,6 @@ body {
 
 
 @media only screen and (max-width: 12000px) {
-    //header
     .navBar {
         .navTop {
             .navLeft {
@@ -99,10 +97,71 @@ body {
         width: 55%;
     }
 
+    .productCont {
+        
+        .prodContainer {
+            gap: 20px;
+
+            .leftCol {
+                min-width: 500px
+            }
+            
+            .centerCol {
+                max-width: 400px;
+            }
+            
+            .rightCol {
+                max-width: 245px;
+                margin-right: 5px;
+                .inRightCol {
+                    min-width: 200px;
+
+                }
+            }
+        }
+    }
+
+    .cartPage {
+
+        .cartProductsCont {
+            .forPrice {
+            }
+
+            .cardCont {
+                .mainCont {
+                    .imgCont {
+                        img {
+                            width: 190px;
+                            height: 180px;
+                            object-fit: contain;
+                        }
+                        .mobileQty {
+                            display: none;
+                        }
+                    }
+                    .describeCont {
+
+                        .detailCont {
+                            display: flex;
+                            align-items: center;
+                            gap: 15px;
+                            margin: 7px 0;
+                        }
+                        .mobilePrice {
+                            display: none;
+                        }
+                    }
+                }
+                .priceCont {
+                    display: block;
+                }
+            }
+        }
+    }
+
 }
 
 @media only screen and (max-width: 1099px) {
-    //header
     .navBar {
         .navTop {
             min-height: 50px;
@@ -188,11 +247,29 @@ body {
     .profilePage {
         width: 70%;
     }
+
+    .productCont {
+        
+        .prodContainer {
+            gap: 10px;
+            
+            .leftCol {
+                min-width: 320px
+            }
+            
+            .rightCol {
+                max-width: 245px;
+                .inRightCol {
+                    min-width: 180px;
+
+                }
+            }
+        }
+    }
     
 }
 
 @media only screen and (max-width: 800px) {
-    //header
     .navBar {
         .navTop {
             background-color: #232F3E;
@@ -202,10 +279,6 @@ body {
             grid-template-columns: auto ;
             grid-template-rows: auto  ;
             padding-top: 5px;
-
-            .navLeft {
-
-            }
 
             .navCenter {
                 grid-row-start: 2;
@@ -255,18 +328,98 @@ body {
         width: 90%;
     }
 
+    .productCont {
+        margin: 10px;
+        .prodContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .leftCol {
+                max-width: 450px;
+                min-width: 230px;
+                padding-left: 40px;
+                position: static
+            }
+            .centerCol {
+                max-width: 500px;
+            }
+
+            .rightCol {
+                max-width: 500px!important;
+                width: 100%;
+                margin: 0;
+
+                .inRightCol {
+                    padding: 10px 14px;
+                    max-width: 474px;
+
+                    .addCartButton {
+                        max-width: 472px;
+                    }
+                    
+                }
+            }
+        }
+    }
+
     .cartPage {
         display: flex;
         flex-direction: column-reverse;
+        padding: 7px;
+        gap: 10px;
 
         .cartProductsCont {
-            .cartTitle  .forPrice {
+            padding: 10px;
+
+            .cartTitle {
                 display: none;
+            }
+            .forPrice {
+                display: none;
+            }
+
+            .cardCont {
+                .mainCont {
+                    .imgCont {
+                        display: flex;
+                        flex-direction: column;
+                        img {
+                            width: 140px;
+                            height: 130px;
+                        }
+
+                        .mobileQty {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            padding: 10px 0;
+                        }
+                    }
+                    .describeCont {
+                        .detailCont {
+                            display: none;
+                        }
+                        .mobilePrice {
+                            display: block;
+                            font-size: 18px;
+                            font-weight: 700;
+                            line-height: 24px;
+                        }
+                    }
+                }
+                .priceCont {
+                    display: none;
+                }
             }
         }
 
         .totalPriceCont {
             width: 100%;
+
+            .inTotalPriceCont {
+                padding: 0 10px;
+            }
         }
     }
 }

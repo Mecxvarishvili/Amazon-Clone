@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
-import { deleteCartProduct, setQtyFromCart } from '../store/cart/cartActions';
+import { setQtyFromCart } from '../store/cart/cartActions';
 
 const ProductQuantity = (props) => {
     const { data, qty } = props
@@ -10,7 +10,7 @@ const ProductQuantity = (props) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(!props.setQty && nQty !==10 ) {
+        if(!props.setQty /* && nQty !==10 */ ) {
         dispatch(setQtyFromCart(data.id, nQty))
         }
     }, [nQty])
@@ -20,7 +20,7 @@ const ProductQuantity = (props) => {
             props.setQty(parseInt(e.target.value))
         } else {
             if(e.target.value == "i") {
-                setQtyType(true)
+                setQtyType(99999999999)
                 setInput(nQty)
             } else {
                 setQty(parseInt(e.target.value))

@@ -20,7 +20,7 @@ const Api = {
         } else {
             body = JSON.stringify()
         }
-        return fetch("http://localhost:8000/ac/" + url, {
+        return fetch("https://vmfakeapi.herokuapp.com/ac/" + url, {
             method: method,
             headers,
             body

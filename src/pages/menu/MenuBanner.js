@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick/lib/slider';
 import { SEARCH_PAGE } from '../routes';
 import SampleArrow from './SampleArrow';
@@ -18,8 +18,6 @@ const MenuBanner = () => {
         nextArrow: <SampleArrow img="right-cont" />,
         className: "bannerCont"
     }
-
-    // const Link = window.location.href
 
     return (
         <form>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ProductSpecs = (props) => {
-    const spec = props.spec
     return (
         props.spec ?
         <div className="productSpecCont" >

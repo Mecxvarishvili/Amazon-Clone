@@ -404,9 +404,6 @@ input[type=number] {
   position: relative;
   display: flex;
   text-align: center;
-  /* .right-cont:focus {
-      box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 4px #008296;
-  } */
 }
 .menuCont .bannerCont .left-cont {
   position: absolute;
@@ -567,14 +564,12 @@ input[type=number] {
 }
 .productCont .prodContainer {
   display: flex;
-  gap: 20px;
 }
 .productCont .prodContainer .leftCol {
   position: sticky;
   max-width: 600px;
   top: 4px;
   height: 100%;
-  width: 50%;
   padding-left: 50px;
 }
 .productCont .prodContainer .leftCol .images {
@@ -610,9 +605,6 @@ input[type=number] {
   max-width: 100%;
   max-height: 685px;
   object-fit: contain;
-}
-.productCont .prodContainer .centerCol {
-  max-width: 400px;
 }
 .productCont .prodContainer .centerCol .productTitle {
   font-size: 24px;
@@ -668,14 +660,12 @@ input[type=number] {
   color: #0F1111;
 }
 .productCont .prodContainer .rightCol {
-  width: 245px;
   height: 100%;
   border: 1px #D5D9D9 solid;
   border-radius: 8px;
 }
 .productCont .prodContainer .rightCol .inRightCol {
   padding: 14px 18px;
-  min-width: 200px;
 }
 .productCont .prodContainer .rightCol .inRightCol .price {
   font-size: 28px;
@@ -730,7 +720,6 @@ input[type=number] {
   background-color: #f8d214;
 }
 
-/* @import "./pages/category/CategoryPage.scss"; deprecated */
 .cartPage {
   background-color: #EAEDED;
   padding: 14px 18px;
@@ -762,10 +751,10 @@ input[type=number] {
   display: flex;
   gap: 10px;
 }
-.cartPage .cartProductsCont .cardsCont .cardCont .mainCont .imgCont img {
-  width: 190px;
-  height: 180px;
-  object-fit: contain;
+.cartPage .cartProductsCont .cardsCont .cardCont .mainCont .deleteButton {
+  color: #007185;
+  cursor: pointer;
+  font-size: 13px;
 }
 .cartPage .cartProductsCont .cardsCont .cardCont .mainCont .describeCont {
   width: 100%;
@@ -782,17 +771,6 @@ input[type=number] {
   color: #007600;
   font-size: 13px;
   line-height: 20px;
-}
-.cartPage .cartProductsCont .cardsCont .cardCont .mainCont .describeCont .detailCont {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 7px 0;
-}
-.cartPage .cartProductsCont .cardsCont .cardCont .mainCont .describeCont .detailCont .deleteButton {
-  color: #007185;
-  cursor: pointer;
-  font-size: 13px;
 }
 .cartPage .cartProductsCont .cardsCont .cardCont .mainCont .describeCont .starCont {
   margin: 5px 0;
@@ -886,7 +864,7 @@ input[type=number] {
   font-weight: bold;
 }
 .cartPage .totalPriceCont .inTotalPriceCont button {
-  height: 30px;
+  height: 35px;
   border: 0;
   border-radius: 7px;
   width: 100%;
@@ -1159,10 +1137,9 @@ input[type=number] {
 }
 .categoryPage .cardsCont .cardCont {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
 }
 .categoryPage .cardsCont .cardCont .cardBox {
-  width: 308px;
   height: 460px;
   border-bottom: 2px solid #ddd;
   padding: 2px 6px 6px;
@@ -1380,6 +1357,44 @@ body {
   .profilePage {
     width: 55%;
   }
+
+  .productCont .prodContainer {
+    gap: 20px;
+  }
+  .productCont .prodContainer .leftCol {
+    min-width: 500px;
+  }
+  .productCont .prodContainer .centerCol {
+    max-width: 400px;
+  }
+  .productCont .prodContainer .rightCol {
+    max-width: 245px;
+    margin-right: 5px;
+  }
+  .productCont .prodContainer .rightCol .inRightCol {
+    min-width: 200px;
+  }
+
+  .cartPage .cartProductsCont .cardCont .mainCont .imgCont img {
+    width: 190px;
+    height: 180px;
+    object-fit: contain;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .imgCont .mobileQty {
+    display: none;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .describeCont .detailCont {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 7px 0;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .describeCont .mobilePrice {
+    display: none;
+  }
+  .cartPage .cartProductsCont .cardCont .priceCont {
+    display: block;
+  }
 }
 @media only screen and (max-width: 1099px) {
   .navBar .navTop {
@@ -1440,6 +1455,19 @@ body {
   .profilePage {
     width: 70%;
   }
+
+  .productCont .prodContainer {
+    gap: 10px;
+  }
+  .productCont .prodContainer .leftCol {
+    min-width: 320px;
+  }
+  .productCont .prodContainer .rightCol {
+    max-width: 245px;
+  }
+  .productCont .prodContainer .rightCol .inRightCol {
+    min-width: 180px;
+  }
 }
 @media only screen and (max-width: 800px) {
   .navBar .navTop {
@@ -1488,15 +1516,82 @@ body {
     width: 90%;
   }
 
+  .productCont {
+    margin: 10px;
+  }
+  .productCont .prodContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .productCont .prodContainer .leftCol {
+    max-width: 450px;
+    min-width: 230px;
+    padding-left: 40px;
+    position: static;
+  }
+  .productCont .prodContainer .centerCol {
+    max-width: 500px;
+  }
+  .productCont .prodContainer .rightCol {
+    max-width: 500px !important;
+    width: 100%;
+    margin: 0;
+  }
+  .productCont .prodContainer .rightCol .inRightCol {
+    padding: 10px 14px;
+    max-width: 474px;
+  }
+  .productCont .prodContainer .rightCol .inRightCol .addCartButton {
+    max-width: 472px;
+  }
+
   .cartPage {
     display: flex;
     flex-direction: column-reverse;
+    padding: 7px;
+    gap: 10px;
   }
-  .cartPage .cartProductsCont .cartTitle .forPrice {
+  .cartPage .cartProductsCont {
+    padding: 10px;
+  }
+  .cartPage .cartProductsCont .cartTitle {
+    display: none;
+  }
+  .cartPage .cartProductsCont .forPrice {
+    display: none;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .imgCont {
+    display: flex;
+    flex-direction: column;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .imgCont img {
+    width: 140px;
+    height: 130px;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .imgCont .mobileQty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .describeCont .detailCont {
+    display: none;
+  }
+  .cartPage .cartProductsCont .cardCont .mainCont .describeCont .mobilePrice {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  .cartPage .cartProductsCont .cardCont .priceCont {
     display: none;
   }
   .cartPage .totalPriceCont {
     width: 100%;
+  }
+  .cartPage .totalPriceCont .inTotalPriceCont {
+    padding: 0 10px;
   }
 }
 

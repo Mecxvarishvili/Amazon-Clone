@@ -1,14 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { SEARCH_PAGE, HOME_PAGE } from '../../pages/routes';
-import { useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getUserAuthentication, getUserData } from '../../store/selector';
+import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {
 
-    /* const {isLoggedIn, data} = useSelector(getUserData) */
-    const { category, search } = useParams()
 
     const [ searchValue, setSearchValue ] = useState("")
     const [ categoryValue, setCategoryValue ] = useState("")
@@ -50,8 +46,6 @@ const SearchBar = () => {
         querySet("category", setCategoryValue)
     }, [location.search])
 
-    console.log(location)
-
     return (
         <div className='navCenter' >
             <form onSubmit={() => formSubmit() } id="products-search" role="search" method="GET" action={pathName}>
@@ -67,7 +61,6 @@ const SearchBar = () => {
                     <option value="video-games" >Video Games</option>
                 </select>
                 <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} id="search" name={formSearchName} />
-                {/* <input  type="submit" hidden /> */}
                 <button type="submit" className='searchBtn' >
                     <img src="https://icon-library.com/images/svg-search-icon/svg-search-icon-16.jpg" />
                 </button>

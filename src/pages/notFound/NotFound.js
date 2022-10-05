@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { HOME_PAGE } from "../routes"
 
 const NotFound = () => {
-    const dogImg = [
-        "https://images-na.ssl-images-amazon.com/images/G/01/error/44._TTD_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/G/01/error/166._TTD_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/G/01/error/159._TTD_.jpg",
-        "",
-        "",
-
-    ]
     return (
         <div className="errorPage" >
             <form></form>

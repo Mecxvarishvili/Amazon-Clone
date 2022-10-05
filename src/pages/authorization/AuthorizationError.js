@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SIGN_IN_PAGE, SIGN_UP_PAGE } from '../routes';
+import { SIGN_IN_PAGE } from '../routes';
 
 const AuthorizationError = (props) => {
     const { title, describe, email } = props.error

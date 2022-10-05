@@ -1,7 +1,7 @@
 import {ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SIGN_UP_PAGE, HOME_PAGE } from '../routes';
+import { SIGN_UP_PAGE } from '../routes';
 import Api from '../../componenets/api';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';

@@ -5,7 +5,7 @@ import Api from '../../componenets/api';
 import ProductAttributes from './ProductAttributes';
 import { setCartProduct } from '../../store/cart/cartActions';
 import ProductQuantity from '../../componenets/ProductQuantity';
-import { getUserAuthentication, getUserId } from '../../store/selector';
+import { getUserAuthentication } from '../../store/selector';
 import Loader from '../../componenets/Loader';
 import StarRating from '../../componenets/StarRating';
 import ProductSpecs from '../../componenets/ProductSpecs';

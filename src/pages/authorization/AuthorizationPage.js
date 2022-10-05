@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import image from '../../img/black-logo.png'
 import { HOME_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from '../routes';
 import SignInForm from './SignInForm';

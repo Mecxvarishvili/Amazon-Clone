@@ -10,6 +10,17 @@ const CartCard = (props) => {
     const { data } = props
     const dispatch = useDispatch()
 
+    const quantitySet = (data) => {
+        return (
+            <>
+            <ProductQuantity qty={data.qty} data={data} />
+            <div className="deleteButton" onClick={() => {
+                dispatch(setQtyFromCart(data.id, 0))
+            }} >Delete</div>
+            </>
+        )
+    }
+
     return (
         <div className="cardCont" >
             <div className='mainCont' >
@@ -17,6 +28,9 @@ const CartCard = (props) => {
                     <Link to={PRODUCT_PAGE.replace(":id", data.id)} >
                         <img src={data.gallery[0]} />
                     </Link>
+                    <div className="mobileQty">
+                        {quantitySet(data)}
+                    </div>
                 </div>
                 <div className='describeCont' >
                     <div>
@@ -27,12 +41,10 @@ const CartCard = (props) => {
                         <div>Brand: {data.brand}</div>
                     </div>
                     <div className="detailCont" >
-                        <ProductQuantity qty={data.qty} data={data} />
-                        <div className="deleteButton" onClick={() => {
-                            dispatch(setQtyFromCart(data.id, 0))
-                        }} >Delete</div>
+                        {quantitySet(data)}
                     </div>
                     <StarRating star={data.star} />
+                    <div className="mobilePrice">{data.price}</div>
                 </div>
             </div>
             <div className='priceCont' >${data.price}</div>

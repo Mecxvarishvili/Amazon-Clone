@@ -46,4 +46,3 @@ const CategoryCard = (props) => {
 };
 
 export default CategoryCard;
-/* Link + `s?category=${data.id} `*/

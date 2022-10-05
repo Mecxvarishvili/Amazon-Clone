@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import serialize from '../../serialize/serializer';
 import { getCartData } from '../../store/selector';
-import { SIGN_IN_PAGE, SIGN_UP_PAGE } from '../routes';
 import CartCard from './CartCard';
-import { Link } from 'react-router-dom';
+
 const CartPage = () => {
 
-    /* const [ cartData, setData ] = useState(useSelector((state) => state.cartReducer)) */
     const cartData = useSelector(getCartData)
-    /* useEffect(() => {
-        setData(cartSelector)
-    }, [cartSelector]) */
 
     return (
         <div className="cartPage" >
