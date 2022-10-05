@@ -17,7 +17,7 @@ const serialize = {
             for(var i in data) {
                 totalPrice += data[i].qty * parseFloat(data[i].price)
             }
-            return totalPrice
+            return totalPrice.toFixed(2)
         } 
     },
 
