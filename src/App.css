@@ -894,6 +894,11 @@ input[type=number] {
   max-width: 350px;
   margin: auto;
 }
+.authorizationPage .formCont .cloner {
+  margin: 30px 5px;
+  color: #BB0A1E;
+  text-transform: capitalize;
+}
 .authorizationPage .formCont .inFormCont {
   max-width: 312px;
   margin: auto;

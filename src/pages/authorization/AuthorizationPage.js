@@ -17,6 +17,7 @@ const AuthorizationPage = () => {
                 </Link>
             </div>
             <div className="formCont" >
+                <div className="cloner" >This website is an Amazon.com clone, so don't use Amazon user data.</div>
                 {location.pathname === SIGN_IN_PAGE && <SignInForm/>}
                 {location.pathname === SIGN_UP_PAGE && <SignUpForm/>}
             </div>
@@ -33,7 +34,7 @@ const AuthorizationPage = () => {
                         <a target="_blank" className='A-type-1' href='https://www.amazon.com/gp/help/customer/display.html' >Help</a>
                     </div>
                 </div>
-                <div className='inc' >© 1996-2022, Amazon.com, Inc. or its affiliates</div>
+                <div className='inc' >© Amazon.com, Clone Website</div>
             </div>
         </div>
     );
