@@ -20,7 +20,7 @@ const Api = {
         } else {
             body = JSON.stringify()
         }
-        return fetch("https://vmfakeapi.netlify.app/ac/" + url, {
+        return fetch("http://localhost:8888/ac/" + url, {
             method: method,
             headers,
             body
@@ -33,7 +33,7 @@ const Api = {
     },
 
     fetchSearchProducts: (id) => {
-        return Api.baseApi(id, "GET")
+        return Api.baseApi(id, "POST")
         .then(res => res.json())
     },
 

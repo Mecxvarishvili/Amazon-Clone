@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     var products = []
-    Api.baseApi("", "GET")
+    Api.baseApi("", "POST")
       .then(res => res.json())
       .then(res => products = [...res])
 
