@@ -20,7 +20,7 @@ const Api = {
         } else {
             body = JSON.stringify()
         }
-        return fetch("http://localhost:8888/ac/" + url, {
+        return fetch("https://vmfakeapi.vercel.app/ac/" + url, {
             method: method,
             headers,
             body
@@ -33,7 +33,7 @@ const Api = {
     },
 
     fetchSearchProducts: (id) => {
-        return Api.baseApi(id, "POST")
+        return Api.baseApi(id, "GET")
         .then(res => res.json())
     },
 
