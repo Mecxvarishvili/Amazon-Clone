@@ -68,6 +68,7 @@ function App() {
 
   return (
     <div>
+      <div className="amazonClone">amazon clone</div>
       {loader && <Router>
         <LayoutRoute element={<Header />} />
         <Routes>

@@ -20,7 +20,7 @@ const Api = {
         } else {
             body = JSON.stringify()
         }
-        return fetch("https://vmfakeapi.vercel.app/ac/" + url, {
+        return fetch("https://vmfakeapi.onrender.com/ac/" + url, {
             method: method,
             headers,
             body

@@ -1307,6 +1307,14 @@ input[type=number] {
 body {
   font-family: sans-serif;
 }
+body .amazonClone {
+  text-align: center;
+  align-items: center;
+  background-color: #BB0A1E;
+  color: white;
+  text-transform: capitalize;
+  padding: 3px 0;
+}
 
 .Button-A {
   width: 100%;

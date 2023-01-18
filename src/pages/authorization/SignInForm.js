@@ -6,6 +6,7 @@ import Api from '../../componenets/api';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { setUserAuthentication, setUser } from '../../store/user/userAction';
+import { setUserCart } from '../../store/cart/cartActions';
 
 const SignInForm = () => {
     const [ Token, setToken ] = useState("")
@@ -19,6 +20,7 @@ const SignInForm = () => {
                 .then(res => {
                     dispatch(setUser(res))
                     dispatch(setUserAuthentication(true))
+                    dispatch(setUserCart(res.cart))
                 })
         }
     }, [Token])
