@@ -7,15 +7,18 @@ import Api from '../../componenets/api';
 import AuthorizationError from './AuthorizationError';
 import { setUser } from '../../store/user/userAction';
 import { useDispatch } from 'react-redux/es/exports';
+import Loader from '../../componenets/Loader';
 
 const SignUpForm = () => {
     const [ error, setError ] = useState(false)
+    const [ loading, setIsLoading ] = useState(false)
     const dispatch = useDispatch()
 
     return (
         error ?
         <AuthorizationError error={error} setError={setError}/>
         :
+        <Loader isLoading={loading} >
         <div className='inFormCont' >
             <div className='formTitle' >Create Account</div>
             <Formik
@@ -41,11 +44,13 @@ const SignUpForm = () => {
                   .required("Type your password again")
             })}
             onSubmit={(values, {setSubmitting}) => {
+                setIsLoading(true)
                 Api.fetchUserRegister(values)
                     .then(res => res.json())
                     .then(res => {
                         if(res.error) {
                             setError(res.error)
+                            setIsLoading(false)
                         } else {
                             window.localStorage.setItem("Token", res.accessToken)
                             dispatch(setUser(res.user))
@@ -92,6 +97,7 @@ const SignUpForm = () => {
                 <div>Already have an account? <Link to={SIGN_IN_PAGE} className='A-type-1' >Sign-in</Link></div>
             </div>
         </div>
+        </Loader>
     );
 };
 

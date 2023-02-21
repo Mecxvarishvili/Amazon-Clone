@@ -7,10 +7,12 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { setUserAuthentication, setUser } from '../../store/user/userAction';
 import { setUserCart } from '../../store/cart/cartActions';
+import Loader from '../../componenets/Loader';
 
 const SignInForm = () => {
     const [ Token, setToken ] = useState("")
     const [ error, setError ] = useState(false)
+    const [ loading, setIsLoading ] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -27,6 +29,7 @@ const SignInForm = () => {
 
 
     return (
+        <Loader isLoading={loading}>
         <>
             <div className='inFormCont' >
                 <div className='formTitle' >Sign-In</div>
@@ -43,13 +46,14 @@ const SignInForm = () => {
                         .required("Minimum 6 characters required"),
                 })}
                 onSubmit={(values, {resetForm}) => {
+                    setIsLoading(true)
                         Api.fetchUserLogin(values)
                             .then(res => res.json())
                             .then(res => {
                                 if(res.error) {
                                     setError(res.error)
                                     resetForm({values: ''})
-
+                                    setIsLoading(false)
                                 } else {
                                     localStorage.setItem("Token", res.accesToken)
                                     setToken(res.accesToken)
@@ -87,8 +91,8 @@ const SignInForm = () => {
             <div className='createAccCont' >
                 <Link to={SIGN_UP_PAGE} ><div className='createAccBtn'>Create your Amazon account</div></Link>
             </div>
-
         </>
+        </Loader>
     );
 };
 

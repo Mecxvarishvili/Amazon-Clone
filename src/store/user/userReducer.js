@@ -1,6 +1,6 @@
 import { SET_USER, SET_USER_AUTHENTICATION, SET_USER_LOG_OUT } from "./userActionConst"
 
-const initialState = {isLoggedOut: false, isLoggedIn: false, user: {}, products: {}}
+const initialState = {isLoggedIn: false, user: {}, products: {}}
 
 const userReducer = (state = initialState, action) => {
     switch(action.type) {

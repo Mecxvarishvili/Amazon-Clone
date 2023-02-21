@@ -20,12 +20,13 @@ import serialize from './serialize/serializer';
 import PrivateRoute from './pages/authorization/PrivateRoute';
 import ProfilePage from './pages/profile/ProfilePage';
 import AuthorizedRoute from './pages/authorization/AuthorizedRoute';
+import Loader from './componenets/Loader';
 
 function App() {
   const dispatch = useDispatch()
   const userId = useSelector(getUserId)
   const cartData = useSelector(getCartData)
-  const [ loader, setIsLoading] = useState(false)
+  const [ loader, setIsLoading] = useState(true)
 
 
   useEffect(() => {
@@ -43,7 +44,7 @@ function App() {
           return res.json()
         } else {
           localStorage.removeItem("Token")
-          setIsLoading(true)
+          setIsLoading(false)
           throw new Error(res.status)
         }
         })
@@ -51,11 +52,11 @@ function App() {
           const { cart, ...user } = res
           dispatch(setUserCart(cart))
           dispatch(setUser(user))
-          setIsLoading(true)
+          setIsLoading(false)
         })
         .catch((err) => {console.log(err)})
     }else {
-      setIsLoading(true)
+      setIsLoading(false)
     }
 
   }, [])
@@ -69,7 +70,8 @@ function App() {
   return (
     <div>
       <div className="amazonClone">amazon clone</div>
-      {loader && <Router>
+      <Loader isLoading={loader}>
+      <Router>
         <LayoutRoute element={<Header />} />
         <Routes>
           <Route path="*" element={<NotFound />} />
@@ -82,7 +84,8 @@ function App() {
           <Route path={PROFILE_PAGE} element={<PrivateRoute  child={<ProfilePage/>} />} />
         </Routes>
         <LayoutRoute element={<Footer />} />
-      </Router>}
+      </Router>
+      </Loader>
     </div>
   );
 }
