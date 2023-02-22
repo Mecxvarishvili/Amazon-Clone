@@ -1,7 +1,24 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+.focActive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: #000;
+  opacity: 0.6;
+  width: 100%;
+  display: block;
+}
+
+.focDeactive {
+  display: none;
+}
+
 .navBar {
   color: white;
+  position: relative;
+  z-index: 999;
 }
 .navBar .navTop {
   min-height: 60px;
@@ -1314,6 +1331,8 @@ body .amazonClone {
   color: white;
   text-transform: capitalize;
   padding: 3px 0;
+  position: relative;
+  z-index: 999;
 }
 
 .Button-A {

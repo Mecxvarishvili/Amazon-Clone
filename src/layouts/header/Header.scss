@@ -1,8 +1,25 @@
 
 
+
+.focActive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: #000;
+    opacity: 0.6;
+    width: 100%;
+    display: block;
+}
+
+.focDeactive {
+    display: none;
+}
+
 .navBar {
     color: white;
-    
+    position: relative;
+    z-index: 999;
     .navTop {
         min-height: 60px;
         background-color: #131921;

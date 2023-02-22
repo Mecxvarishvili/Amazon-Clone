@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from "../../img/white-logo.png"
 import cartImg from "../../img/whiteCart.png"
 import userImg from"../../img/userImg.png"
@@ -11,10 +11,19 @@ import SearchBar from './SearchBar';
 
 
 
-const Header = () => {
+const Header = ({pageRef}) => {
     const {isLoggedIn, user} = useSelector(getUserReducer)
     const cartData = useSelector(getCartData)
+    const [ inputFocus, setInputFocus ] = useState("focDeactive")
+    const [ pageHeight, setPageHeight ] = useState()
+
+    useEffect(() => {
+        setTimeout(() => {
+        }, 1000)
+        setPageHeight(pageRef.current.offsetHeight)
+    }, [pageRef.current.offsetHeight])
     const totalProduct = serialize.totalProducts(cartData)
+    
     const category = [
         {id: "baby", title: "Baby"},
         {id: "beauty%26personal-care", title: "Beauty & Personal Care"},
@@ -27,7 +36,9 @@ const Header = () => {
     ]
     if(user.name) {var userName = user.name.split(" ")[0]}
     return (
-        <div className='navBar' >
+        <>
+        <div className={inputFocus} style={{height: `${pageHeight}px`}} onClick={() => setInputFocus("focDeactive")}></div>
+        <header className='navBar' >
             <a id="nav-top"></a>
             <div className="navTop" >
                 <div className='navLeft'>
@@ -44,7 +55,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <SearchBar/>
+                <SearchBar setInputFocus={setInputFocus}/>
                 <div className='navRight' >
                     <Link to={PROFILE_PAGE} className="signInCont outline-hov">
                         <div className="userCont1" >
@@ -72,7 +83,8 @@ const Header = () => {
                     <Link to={SEARCH_PAGE+`?category=${data.id}`} key={data.id}>{data.title}</Link>
                 ))}
             </div>
-        </div>
+        </header>
+        </>
     );
 };
 

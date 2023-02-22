@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import { SEARCH_PAGE, HOME_PAGE } from '../../pages/routes';
 import { useLocation } from 'react-router-dom';
 
-const SearchBar = () => {
+const SearchBar = ({setInputFocus}) => {
 
 
     const [ searchValue, setSearchValue ] = useState("")
@@ -14,6 +14,7 @@ const SearchBar = () => {
 
     const [ pathName, setPathName ] = useState(SEARCH_PAGE)
     const location = useLocation()
+    const inputRef = useRef()
     const useQuery = () => new URLSearchParams(useLocation().search);
     const query = useQuery()
 
@@ -46,10 +47,14 @@ const SearchBar = () => {
         querySet("category", setCategoryValue)
     }, [location.search])
 
+    useEffect(() => {
+        setInputFocus("focDeactive")
+    }, [location.pathname])
+
     return (
         <div className='navCenter' >
-            <form onSubmit={() => formSubmit() } id="products-search" role="search" method="GET" action={pathName}>
-                <select value={categoryValue} onChange={(e) => setCategoryValue(e.target.value)} id="category" name={formCategoryName} >
+            <form onSubmit={() => {formSubmit()}} id="products-search" role="search" method="GET" action={pathName}>
+                <select value={categoryValue} onChange={(e) => {setCategoryValue(e.target.value); inputRef.current.focus(); setInputFocus("focActive")}} id="category" name={formCategoryName} >
                     <option value="" >All Product</option>
                     <option value="baby" >Baby</option>
                     <option value="beauty&personal-care" >Beauty & Personal Care</option>
@@ -60,7 +65,7 @@ const SearchBar = () => {
                     <option value="toys&games" >Toys & Games</option>
                     <option value="video-games" >Video Games</option>
                 </select>
-                <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} id="search" name={formSearchName} />
+                <input value={searchValue} ref={inputRef} onClick={(e) => setInputFocus("focActive")} onChange={(e) => setSearchValue(e.target.value)} id="search" name={formSearchName} />
                 <button type="submit" className='searchBtn' >
                     <img src="https://icon-library.com/images/svg-search-icon/svg-search-icon-16.jpg" />
                 </button>

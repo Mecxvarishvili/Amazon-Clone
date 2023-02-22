@@ -19,6 +19,8 @@ body {
         color: white;
         text-transform: capitalize;
         padding: 3px 0;
+        position: relative;
+        z-index: 999;
     }
 }
 
@@ -193,6 +195,7 @@ body {
 
             .navCenter {
                 height: 35px;
+
 
                 .searchBtn {
                     img {

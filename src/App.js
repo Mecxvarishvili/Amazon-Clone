@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './layouts/header/Header';
 import Footer from "./layouts/footer/Footer"
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 import { CART_PAGE, HOME_PAGE, PRODUCT_PAGE, PROFILE_PAGE, SEARCH_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from './pages/routes';
 import MenuPage from './pages/menu/MenuPage';
 import NotFound from './pages/notFound/NotFound';
@@ -10,7 +10,7 @@ import CartPage from './pages/cart/CartPage';
 import LayoutRoute from './componenets/LayoutRoute';
 import AuthorizationPage from './pages/authorization/AuthorizationPage';
 import SearchPage from './pages/search/SearchPage';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Api from './componenets/api';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { setUser } from './store/user/userAction';
@@ -21,13 +21,14 @@ import PrivateRoute from './pages/authorization/PrivateRoute';
 import ProfilePage from './pages/profile/ProfilePage';
 import AuthorizedRoute from './pages/authorization/AuthorizedRoute';
 import Loader from './componenets/Loader';
+import ScrollToTop from './componenets/ScrollToTop';
 
 function App() {
   const dispatch = useDispatch()
   const userId = useSelector(getUserId)
   const cartData = useSelector(getCartData)
   const [ loader, setIsLoading] = useState(true)
-
+  const pageRef = useRef()
 
   useEffect(() => {
     var products = []
@@ -68,11 +69,12 @@ function App() {
   }, [cartData])
 
   return (
-    <div>
+    <div ref={pageRef}>
       <div className="amazonClone">amazon clone</div>
       <Loader isLoading={loader}>
       <Router>
-        <LayoutRoute element={<Header />} />
+        <ScrollToTop />
+        <LayoutRoute element={<Header pageRef={pageRef} />} />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path={HOME_PAGE} element={<MenuPage/>}/>
