@@ -1,4 +1,4 @@
-import { SET_USER, SET_USER_AUTHENTICATION, SET_USER_LOG_OUT } from "./userActionConst"
+import { SET_USER, SET_USER_AUTHENTICATION } from "./userActionConst"
 
 const initialState = {isLoggedIn: false, user: {}, products: {}}
 
