@@ -3,6 +3,7 @@ import ProductCard from './ProductCard';
 import { useLocation, } from 'react-router-dom';
 import Api from '../../componenets/api';
 import Loader from '../../componenets/Loader';
+import { SEARCH_PAGE } from '../routes';
 
 const SearchPage = () => {
 
@@ -16,7 +17,7 @@ const SearchPage = () => {
     const [ data, setData ] = useState('')
 
     useEffect(() => {
-        Api.fetchSearchProducts(location.search)
+        Api.fetchSearchProducts(SEARCH_PAGE +location.search)
             .then(res => {
                 setData(res)
                 setIsLoading(false)

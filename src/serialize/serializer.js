@@ -21,13 +21,13 @@ const serialize = {
         } 
     },
 
-    updateUser: (cart) => {
+    updateCart: (cart) => {
         const Cart = [...cart]
         const newCart = []
         for (var i in Cart ) {
             newCart.push({id: Cart[i].id, qty: Cart[i].qty})
         }
-        return newCart
+        return {cart: newCart}
     }
 }
 

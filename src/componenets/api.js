@@ -49,8 +49,8 @@ const Api = {
         return Api.baseApi("register", "POST", value)
     },
 
-    updateUser: (id, value) => {
-        return Api.baseApi(`user/${id}`, "PUT", value)
+    updateCart: (id, value) => {
+        return Api.baseApi(`cart/${id}`, "PATCH", value)
     }
 }
 

@@ -10,14 +10,14 @@ import { setUserCart } from '../../store/cart/cartActions';
 import Loader from '../../componenets/Loader';
 
 const SignInForm = () => {
-    const [ Token, setToken ] = useState("")
+    const [ token, setToken ] = useState("")
     const [ error, setError ] = useState(false)
     const [ loading, setIsLoading ] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(Token !== "") {
-            Api.fetchUserToken(Token)
+        if(token !== "") {
+            Api.fetchUserToken(token)
                 .then(res => res.json())
                 .then(res => {
                     dispatch(setUser(res))
@@ -25,7 +25,7 @@ const SignInForm = () => {
                     dispatch(setUserCart(res.cart))
                 })
         }
-    }, [Token])
+    }, [token])
 
 
     return (
@@ -54,9 +54,10 @@ const SignInForm = () => {
                                     setError(res.error)
                                     resetForm({values: ''})
                                     setIsLoading(false)
+                                    console.log('err')
                                 } else {
-                                    localStorage.setItem("Token", res.accesToken)
-                                    setToken(res.accesToken)
+                                    localStorage.setItem("Token", res.accessToken)
+                                    setToken(res.accessToken)
                                 }
                                 
                             })

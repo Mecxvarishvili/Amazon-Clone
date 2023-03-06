@@ -1,18 +1,32 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SIGN_IN_PAGE } from '../routes';
 import * as Yup from 'yup'
 import Api from '../../componenets/api';
 import AuthorizationError from './AuthorizationError';
-import { setUser } from '../../store/user/userAction';
+import { setUserAuthentication, setUser } from '../../store/user/userAction';
 import { useDispatch } from 'react-redux/es/exports';
 import Loader from '../../componenets/Loader';
+import { setUserCart } from '../../store/cart/cartActions';
 
 const SignUpForm = () => {
     const [ error, setError ] = useState(false)
     const [ loading, setIsLoading ] = useState(false)
+    const [ token, setToken ] = useState("")
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(token !== "") {
+            Api.fetchUserToken(token)
+                .then(res => res.json())
+                .then(res => {
+                    dispatch(setUser(res))
+                    dispatch(setUserAuthentication(true))
+                    dispatch(setUserCart(res.cart))
+                })
+        }
+    }, [token])
 
     return (
         error ?
@@ -53,7 +67,7 @@ const SignUpForm = () => {
                             setIsLoading(false)
                         } else {
                             window.localStorage.setItem("Token", res.accessToken)
-                            dispatch(setUser(res.user))
+                            setToken(res.accessToken)
                         }
                     })
             }}

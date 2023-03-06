@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './layouts/header/Header';
 import Footer from "./layouts/footer/Footer"
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import { CART_PAGE, HOME_PAGE, PRODUCT_PAGE, PROFILE_PAGE, SEARCH_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from './pages/routes';
 import MenuPage from './pages/menu/MenuPage';
 import NotFound from './pages/notFound/NotFound';
@@ -64,7 +64,7 @@ function App() {
 
   useEffect(() => {
     if(userId) {
-      Api.updateUser(userId, serialize.updateUser(cartData))
+      Api.updateCart(userId, serialize.updateCart(cartData))
     }
   }, [cartData])
 

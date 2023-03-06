@@ -4,8 +4,8 @@ import { getCartData } from '../../store/selector';
 import CartCard from './CartCard';
 
 const CartPage = () => {
-
     const cartData = useSelector(getCartData)
+    
 
     return (
         <div className="cartPage" >
