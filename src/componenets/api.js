@@ -51,6 +51,10 @@ const Api = {
 
     updateCart: (id, value) => {
         return Api.baseApi(`cart/${id}`, "PATCH", value)
+    },
+    fetchCartProducts: (data) => {
+        return Api.baseApi("cart", "POST", data)
+            .then(res => res.json())
     }
 }
 

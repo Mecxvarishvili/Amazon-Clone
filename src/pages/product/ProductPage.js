@@ -72,7 +72,8 @@ const ProductPage = () => {
                         {productData.inStock ? <div className="inStock" >in stock</div> : <div className="outOfStock" >Out of Stock</div>} 
                         {productData.inStock && <ProductQuantity data={productData}  qty={qty} setQty={setQty} />}
                         <button onClick={() => {
-                            productData.inStock && isLoggedIn ? dispatch(setCartProduct(productData, qty)) : window.location.replace(SIGN_IN_PAGE)
+                            productData.inStock && isLoggedIn && dispatch(setCartProduct(productData, qty));
+                            productData.inStock && !isLoggedIn && window.location.replace(SIGN_IN_PAGE)
                         }} className={productData.inStock ? "addCartButton" : "buttonInStock"} >add To cart</button>
                     </div>
                 </div>

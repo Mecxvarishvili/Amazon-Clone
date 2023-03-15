@@ -10,7 +10,7 @@ const ProductQuantity = (props) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(!props.setQty /* && nQty !==10 */ ) {
+        if(!props.setQty) {
         dispatch(setQtyFromCart(data.id, nQty))
         }
     }, [nQty])
@@ -19,7 +19,7 @@ const ProductQuantity = (props) => {
         if(props.setQty) {
             props.setQty(parseInt(e.target.value))
         } else {
-            if(e.target.value == "i") {
+            if(e.target.value === "i") {
                 setQtyType(99999999999)
                 setInput(nQty)
             } else {

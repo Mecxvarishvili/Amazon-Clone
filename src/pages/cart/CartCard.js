@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PRODUCT_PAGE } from '../routes';
 import ProductQuantity from '../../componenets/ProductQuantity';
 import { useDispatch } from 'react-redux';
 import { setQtyFromCart } from '../../store/cart/cartActions';
 import StarRating from '../../componenets/StarRating';
+import Api from '../../componenets/api';
 
-const CartCard = (props) => {
-    const { data } = props
+const CartCard = ({data}) => {
     const dispatch = useDispatch()
-
+    
     const quantitySet = (data) => {
         return (
             <>
@@ -20,9 +20,9 @@ const CartCard = (props) => {
             </>
         )
     }
-
+    
     return (
-        <div className="cardCont" >
+        data.gallery ? <div className="cardCont" >
             <div className='mainCont' >
                 <div className='imgCont'>
                     <Link to={PRODUCT_PAGE.replace(":id", data.id)} >
@@ -49,6 +49,7 @@ const CartCard = (props) => {
             </div>
             <div className='priceCont' >${data.price}</div>
         </div>
+         : <></>
     );
 };
 

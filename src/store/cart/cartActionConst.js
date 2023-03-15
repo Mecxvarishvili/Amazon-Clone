@@ -1,3 +1,3 @@
 export const SET_CART_PRODUCT = "SAT_CART_PRODUCT";
-export const SET_QTY_FROM_CART = "SAT_CART_PRODUCT_QTY";
+export const SET_QTY_FROM_CART = "SET_QTY_FROM_CART";
 export const SET_USER_CART = "SET_USER_CART";

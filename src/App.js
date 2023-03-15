@@ -31,7 +31,7 @@ function App() {
   const pageRef = useRef()
 
   useEffect(() => {
-    var products = []
+    let products = []
     Api.baseApi("", "GET")
       .then(res => res.json())
       .then(res => products = [...res])
@@ -51,7 +51,8 @@ function App() {
         })
         .then(res => { 
           const { cart, ...user } = res
-          dispatch(setUserCart(cart))
+          Api.fetchCartProducts(cart)
+            .then((res) => dispatch(setUserCart (res)))
           dispatch(setUser(user))
           setIsLoading(false)
         })

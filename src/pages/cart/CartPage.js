@@ -5,7 +5,6 @@ import CartCard from './CartCard';
 
 const CartPage = () => {
     const cartData = useSelector(getCartData)
-    
 
     return (
         <div className="cartPage" >
@@ -33,7 +32,7 @@ const CartPage = () => {
                     <div className='noProduct' >
                         <div className='boxP' >
                             <div className="noProductImg" >
-                                <img src="https://m.media-amazon.com/images/G/01/cart/empty/kettle-desaturated._CB445243794_.svg" />
+                                <img alt={cartData.title} src="https://m.media-amazon.com/images/G/01/cart/empty/kettle-desaturated._CB445243794_.svg" />
                             </div>
                             <div className="emptyCont" >
                                 <div className='emptyTitle'>Your Amazon Cart is empty</div>
