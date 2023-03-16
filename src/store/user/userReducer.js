@@ -5,7 +5,7 @@ const initialState = {isLoggedIn: false, user: {}, products: {}}
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case SET_USER:
-            return {...state, isLoggedIn: true, user: {...action.payload}}
+            return {...state, isLoggedIn: false, user: {...action.payload}}
         case SET_USER_AUTHENTICATION:
             if(action.payload) {
                 return {...state, isLoggedIn: action.payload}

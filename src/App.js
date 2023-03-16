@@ -13,9 +13,9 @@ import SearchPage from './pages/search/SearchPage';
 import { useEffect, useRef, useState } from 'react';
 import Api from './componenets/api';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { setUser } from './store/user/userAction';
+import { setUser, setUserAuthentication } from './store/user/userAction';
 import { setUserCart } from './store/cart/cartActions';
-import { getUserId, getCartData } from './store/selector';
+import { getUserId, getCartData, getUserAuthentication } from './store/selector';
 import serialize from './serialize/serializer';
 import PrivateRoute from './pages/authorization/PrivateRoute';
 import ProfilePage from './pages/profile/ProfilePage';
@@ -27,6 +27,7 @@ function App() {
   const dispatch = useDispatch()
   const userId = useSelector(getUserId)
   const cartData = useSelector(getCartData)
+  const isLoggedIn = useSelector(getUserAuthentication)
   const [ loader, setIsLoading] = useState(true)
   const pageRef = useRef()
 
@@ -51,10 +52,12 @@ function App() {
         })
         .then(res => { 
           const { cart, ...user } = res
-          Api.fetchCartProducts(cart)
-            .then((res) => dispatch(setUserCart (res)))
           dispatch(setUser(user))
-          setIsLoading(false)
+          Api.fetchCartProducts(cart)
+            .then((res) => {
+              dispatch(setUserCart(res))
+              dispatch(setUserAuthentication(true))
+              setIsLoading(false)})
         })
         .catch((err) => {console.log(err)})
     }else {
@@ -64,7 +67,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if(userId) {
+    if(isLoggedIn) {
       Api.updateCart(userId, serialize.updateCart(cartData))
     }
   }, [cartData])

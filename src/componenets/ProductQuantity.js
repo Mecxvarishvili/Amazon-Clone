@@ -10,7 +10,7 @@ const ProductQuantity = (props) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(!props.setQty) {
+        if(!props.setQty && qty !== nQty) {
         dispatch(setQtyFromCart(data.id, nQty))
         }
     }, [nQty])

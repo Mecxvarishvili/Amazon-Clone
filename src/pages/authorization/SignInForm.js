@@ -20,9 +20,13 @@ const SignInForm = () => {
             Api.fetchUserToken(token)
                 .then(res => res.json())
                 .then(res => {
-                    dispatch(setUser(res))
-                    dispatch(setUserAuthentication(true))
-                    dispatch(setUserCart(res.cart))
+                    const { cart, ...data } = res
+                    dispatch(setUser(data))
+                    Api.fetchCartProducts(cart)
+                        .then(res => {
+                            dispatch(setUserCart(res))
+                            dispatch(setUserAuthentication(true))
+                        })
                 })
         }
     }, [token])
@@ -54,7 +58,6 @@ const SignInForm = () => {
                                     setError(res.error)
                                     resetForm({values: ''})
                                     setIsLoading(false)
-                                    console.log('err')
                                 } else {
                                     localStorage.setItem("Token", res.accessToken)
                                     setToken(res.accessToken)

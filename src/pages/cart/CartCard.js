@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { PRODUCT_PAGE } from '../routes';
 import ProductQuantity from '../../componenets/ProductQuantity';
 import { useDispatch } from 'react-redux';
 import { setQtyFromCart } from '../../store/cart/cartActions';
 import StarRating from '../../componenets/StarRating';
-import Api from '../../componenets/api';
 
 const CartCard = ({data}) => {
     const dispatch = useDispatch()
@@ -14,9 +13,7 @@ const CartCard = ({data}) => {
         return (
             <>
             <ProductQuantity qty={data.qty} data={data} />
-            <div className="deleteButton" onClick={() => {
-                dispatch(setQtyFromCart(data.id, 0))
-            }} >Delete</div>
+            <div className="deleteButton" onClick={() => {dispatch(setQtyFromCart(data.id, 0))}} >Delete</div>
             </>
         )
     }
@@ -26,7 +23,7 @@ const CartCard = ({data}) => {
             <div className='mainCont' >
                 <div className='imgCont'>
                     <Link to={PRODUCT_PAGE.replace(":id", data.id)} >
-                        <img src={data.gallery[0]} />
+                        <img alt={data.name} src={data.gallery[0]} />
                     </Link>
                     <div className="mobileQty">
                         {quantitySet(data)}
