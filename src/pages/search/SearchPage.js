@@ -17,7 +17,7 @@ const SearchPage = () => {
     const [ data, setData ] = useState('')
 
     useEffect(() => {
-        Api.fetchSearchProducts(SEARCH_PAGE +location.search)
+        Api.fetchSearchProducts("search" +location.search)
             .then(res => {
                 setData(res)
                 setIsLoading(false)
